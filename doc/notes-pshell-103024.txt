@@ -5,7 +5,7 @@ I able to create pshell.uf2
 cp pi5-70-pico/pshell.uf2 /media/devel/RP2350/
 I was able to xmodem a file from the Raspberry Pi5 to the pico2.
 
-git clone https://github.com/develone/pshell.git
+git clone https://github.com/develone/pshell.git -b test-dev
 cd pshell/ 
 git submodule update --init
 mkdir build 
