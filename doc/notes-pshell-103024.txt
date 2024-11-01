@@ -1,3 +1,40 @@
+11/01/24
+lurk101 commented 10/31/24
+Thanks. I've made the recommended changes in the dev branch. See commit 098a68c
+Can you verify that I got it right? I currently don't have an RP2040 set up for testing.
+
+tested test-dev built on Raspberry Pi5
+commit 5c30b565a5fb598862a6ef3426c7498bb271cbd4 (HEAD -> test-dev, origin/test-dev)
+Author: Edward Vidal Jr <develone@sbcglobal.net>
+Date:   Fri Nov 1 06:14:21 2024 -0600
+rm -rf build
+mkdir build
+cd build
+
+cmake .. -DPICO_BOARD=pico -DPICO_PLATFORM=rp2040
+make
+cp pshell.uf2 /media/devel/RPI-RP2/
+
+mount 
+hex a64.bin
+/: version
+
+Pico Shell , LittleFS v2.9, Vi 0.9.1, SDK v2.0.0
+pshell worked okay with minicom /dev/ttyACM0
+
+mkdir build-rp2350
+cd build-rp2350
+cmake .. -DPICO_BOARD=pico2 -DPICO_PLATFORM=rp2350
+make
+cp pshell.uf2 /media/devel/RP2350/
+
+mount 
+hex a64.bin
+/: version                                                                      
+                                                                                
+Pico Shell , LittleFS v2.9, Vi 0.9.1, SDK v2.0.0
+pshell worked okay with minicom /dev/ttyACM0
+
 github user lurk101 recently update the his pshell 
 with many upgrades.  Untill the freertos is working for 
 the rp2350 this will be a better starting point.
