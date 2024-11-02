@@ -25,6 +25,10 @@
 #include "vi.h"
 #include "xmodem.h"
 #include "ymodem.h"
+#include "lifting.h"
+#include "klt.h"
+
+#include "comprogs.h"
 #if !defined(NDEBUG) || defined(PSHELL_TESTS)
 #include "tests.h"
 #endif
@@ -346,6 +350,201 @@ static void cp_cmd(void) {
         sprintf(result, "file %s copied to %s", from, to);
     free(from);
     free(to);
+}
+
+static void
+lsklt_cmd (void)
+{
+  if (check_mount (true))
+    return;
+
+  ptrs.w = 64;
+  ptrs.h = 64;
+	tc = KLTCreateTrackingContext ();
+  //printf("tc 0x%x\n",tc);
+  fl = KLTCreateFeatureList (nFeatures);
+  ptrs.out_buf = ptrs.inpbuf + imgsize;
+  ptrs.inp_buf = ptrs.inpbuf;
+  ncols = 64;
+  nrows = 64;
+  printf ("%d %s %s %s\n", argc, argv[1], argv[2], argv[3]);
+	ptrs.fwd_inv = &ptrs.fwd;
+	*ptrs.fwd_inv = 1;
+  
+  lfs_file_t in, out;
+
+
+  //if (lfsfile_open(&in, argv[1], LlfsO_RDONLY) < 0)
+  //printf("error in open\n");        
+
+  printf ("%d\n", fs_file_open (&in, argv[1], LFS_O_RDONLY));
+  int l = fs_file_size (&in), charcnt = 0, charsent = 0;
+  int ii = 0, jj = 0, flag;
+  char *bufptr;
+   
+  //char *outstrptr;
+  char *buf = malloc (l + 1);
+	char *outstr = malloc (75 + 1);
+  fs_file_read (&in, buf, l);
+/*
+Read the pgm header
+P5                                                                              
+# Created by GIMP version 2.10.8 PNM plug-in                                    
+48                                                                              
+64 64                                                                           
+255
+*/
+  for (ii = 0; ii < 3; ii++)
+    printf ("%c", buf[ii]);
+  flag = 1;
+  while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+  ii++;
+  //printf("\n%d\n",ii);
+  flag = 1;
+  while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+  printf ("\n");
+  ii++;
+
+  flag = 1;
+  while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+  printf ("\n");
+  ptrs.inp_buf = ptrs.inpbuf;
+  ii++;
+  bufptr = &buf[ii];
+  for (jj = 0; jj < 64; jj++)
+    {
+      for (ii = 0; ii < 64; ii++)
+	{
+	  //printf("%d ",*bufptr);
+	  *ptrs.inp_buf = (unsigned short int) *bufptr;
+	  printf ("%d ", *ptrs.inp_buf);
+	  bufptr++;
+	  ptrs.inp_buf++;
+	}
+    }
+  printf ("\n");
+
+  ptrs.inp_buf = ptrs.inpbuf;
+  printf ("opening a file to write the results\n");
+  //if (lfsfile_open(&fd, argv[2], LlfsO_WRONLY) < 0)
+  // printf("error in open\n"); 
+  printf ("need to copy the data received from host to img1\n");
+  img1 = inpbuf;
+  img2 = &inpbuf[4096];
+
+  printf ("img1 = 0x%x img2 = 0x%x\n", img1, img2);
+  for (i = 0; i < ncols * nrows; i++)
+    {
+      img1[i] = ptrs.inp_buf[i];
+      //img2[i+4096] = img1[i]; 
+      if (i < 5)
+	printf ("%d img1 %d ptrs.buf %d \n", i, img1[i], ptrs.inp_buf[i]);
+      if (i > 4090)
+	printf ("%d img1 %d ptrs.buf %d \n", i, img1[i], ptrs.inp_buf[i]);
+    }
+  printf ("need to copy the data from img1 to img2\n");
+  for (i = 0; i < ncols * nrows; i++)
+    {
+      *img2 = *img1;
+      if (i < 5)
+	printf ("%d img2 %d img1 %d \n", i, *img2, *img1);
+      if (i > 4090)
+	printf ("%d img2 %d img1 %d \n", i, *img2, *img1);
+      img2++;
+      img1++;
+    }
+  ptrs.inp_buf = ptrs.inpbuf;
+  img1 = inpbuf;
+  img2 = &inpbuf[4096];
+
+  //printf("img1 = 0x%x img2 = 0x%x\n",img1, img2);
+	img1 = &inpbuf[0];
+	img2 = &inpbuf[4096];
+
+  if(atoi(argv[3])==1) {
+		printf("klt\n");
+
+		KLTSelectGoodFeatures (tc, img1, ncols, nrows, fl);
+
+  	//printf("\nIn first image:\n");
+  	for (i = 0; i < fl->nFeatures; i++)
+    	{
+      	printf ("Feature #%d:  (%f,%f) with value of %d\n",
+        	 i, fl->feature[i]->x, fl->feature[i]->y,
+         	fl->feature[i]->val); 
+
+      	/*charsent = sprintf (outstr, "Feature #%d:  (%f,%f) with value of %d",
+			  	i, fl->feature[i]->x, fl->feature[i]->y,
+			  	fl->feature[i]->val);*/
+
+      	//*outstr = *outstr + charsent;
+      	//charcnt = charcnt + charsent;
+    	}
+  	//*outstr = *outstr - charcnt;
+  	printf ("this is the string %d %s", charcnt, outstr);
+	}
+  else
+	{
+		printf("lifting step\n");
+		ptrs.inp_buf = ptrs.inpbuf;
+    printf("%d 0x%x 0x%x 0%x \n",ptrs.w, ptrs.inp_buf, ptrs.out_buf, *ptrs.fwd_inv);
+		lifting (ptrs.w, ptrs.inp_buf, ptrs.out_buf, ptrs.fwd_inv);
+		for(nrows=0;nrows<64;nrows++) {
+			for(ncols=0;ncols<64;ncols++) {
+				printf("%d ",ptrs.inp_buf[offset]);
+				offset++;
+			}
+			printf("\n");
+		}
+	}
+  free (buf);
+	free (outstr);
+  //free(&fd);
+  fs_file_close (&in);
+  printf ("%d \n", fs_file_open (&out, argv[2], LFS_O_WRONLY | LFS_O_CREAT));
+  //lfsfile_write (&out, outstr, charsent);
+  fs_file_close (&out);
+}
+
+
+static void
+j2k_cmd (void)
+{
+  if (check_mount (true))
+    return;
+	//in_fname is passed as argv[1]
+	//out_fname is passed as argv[2]
+	//Compression Ratio
+	//Compress DeCompress
+	printf ("%d in_fname = %s out_fname = %s CR %d C/D = %d \n", argc, argv[1], argv[2], atoi(argv[3]), atoi(argv[4]));
+//lfsfile_close (&in);
 }
 
 static void cat_cmd(void) {
@@ -951,6 +1150,8 @@ const cmd_t cmd_table[] = {
     {"xput",    xput_cmd,       "xmodem put a file (host->pico)"},
     {"yget",    yget_cmd,       "ymodem get a file (pico->host)"},
     {"yput",    yput_cmd,       "ymodem put a file (host->pico)"},
+    {"lsklt", lsklt_cmd, "lifting step 0 klt 1"},
+    {"j2k", j2k_cmd, "In File Out Frile Compression Ratio Compression 0 Decompression 1"},	
     {"#",       cmnt_cmd,       "comment line"},
 	{0}
 };
