@@ -1216,6 +1216,45 @@ static bool run_as_cmd(const char* dir) {
     return true;
 }
 
+void
+pshell (void *pvParameters)
+{
+  while (true)
+    {
+      //printf("This is a place holder for the pshell task\n");
+      while (run)
+	{
+	  printf ("%s: ", full_path (""));
+	  fflush (stdout);
+	  parse_cmd ();
+	  bool found = false;
+	  int i;
+	  result[0] = 0;
+	  if (argc)
+	    for (i = 0; i < sizeof cmd_table / sizeof cmd_table[0]; i++)
+	      if (strcmp (argv[0], cmd_table[i].name) == 0)
+		{
+		  cmd_table[i].func ();
+		  printf ("%d %s %s\n", i, cmd_table[i].name,
+			  cmd_table[i].descr);
+		  found = true;
+		  break;
+		}
+	  if (!found)
+	    {
+	      if (argc)
+		printf ("command unknown!\n\n");
+	      for (int i = 0; i < sizeof cmd_table / sizeof cmd_table[0]; i++)
+		printf ("%7s - %s\n", cmd_table[i].name, cmd_table[i].descr);
+	      printf ("\n");
+	      continue;
+	    }
+	  printf ("%s\n", result);
+	}
+      vTaskDelay (35000);
+    }
+}
+
 // application entry point
 int main(void) {
     // initialize the pico SDK
