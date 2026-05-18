@@ -1,0 +1,8 @@
+bitmap/
+├── bitmap-lib
+│   ├── bmp.c
+│   └── bmp.h
+├── CMakeLists-interface.txt
+└── CMakeLists.txt
+
+2 directories, 4 files
