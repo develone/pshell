@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5176e80..97890e2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -33,6 +33,7 @@ add_subdirectory(crc_crc16)
+ add_subdirectory(klt)
+ add_subdirectory(lifting)
+ add_subdirectory(openjpeg)
++add_subdirectory(bitmap)
+ 
+ if ("${PICO_BOARD}" STREQUAL "vgaboard")
+     add_subdirectory(sdio)
