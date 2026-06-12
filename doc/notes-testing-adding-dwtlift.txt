@@ -1,3 +1,22 @@
+
+Pico Shell - Copyright (c) 1883 Thomas Edison
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE file for details.
+
+platform: pico, console: UART0 [80 X 24], filesystem: flash
+
+file system automatically mounted
+
+enter a command or hit ENTER for command list
+
+/: ls
+
+    4224 a64.bin
+    4224 img1.pgm
+   12544 lena_rgb_64.bmp
+    7680 test.j2k
+
 diff --git a/shell.c b/shell.c
 index 2cca551..361882b 100644
 --- a/shell.c
