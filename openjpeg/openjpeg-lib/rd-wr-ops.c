@@ -83,13 +83,13 @@ void wr_inps() {
 	
 	
 }
-/*
+
 void main() {
 	wr_inps();
 	rd_inps();
 
 }
-*/
+
 /*
 RaspBian
 devel@mypi3-15:~/Ultibo_Projects/jpeg2000/src $ gcc rd-wr-ops.c -o tst
