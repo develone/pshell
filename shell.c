@@ -533,18 +533,24 @@ P5
   fs_file_close (&out);
 }
 
-
+ 
 static void
 j2k_cmd (void)
 {
   if (check_mount (true))
     return;
-	//in_fname is passed as argv[1]
-	//out_fname is passed as argv[2]
-	//Compression Ratio
-	//Compress DeCompress
-	printf ("%d in_fname = %s out_fname = %s CR %d C/D = %d \n", argc, argv[1], argv[2], atoi(argv[3]), atoi(argv[4]));
-//lfsfile_close (&in);
+    int da_x0, da_y0, da_x1, da_y1;
+    char ff[20]="test.j2k";
+ 
+    da_x0 = 0;
+    da_y0 = 0;
+    da_x1 = 256;
+    da_y1= 256;
+    printf("da_xo %d da_y0 %d\n",da_x0,da_y0);
+    printf("da_x1 %d da_y1 %d ff %s\n",da_x1,da_y1,ff);
+    //decom_test(da_x0,da_y0,da_x1,da_y1,ff);
+    
+
 }
 
 static void cat_cmd(void) {

@@ -1,0 +1,280 @@
+diff --git a/shell.c b/shell.c
+index 2cca551..361882b 100644
+--- a/shell.c
++++ b/shell.c
+@@ -533,18 +533,24 @@ P5
+   fs_file_close (&out);
+ }
+ 
+-
++ 
+ static void
+ j2k_cmd (void)
+ {
+   if (check_mount (true))
+     return;
+-       //in_fname is passed as argv[1]
+-       //out_fname is passed as argv[2]
+-       //Compression Ratio
+-       //Compress DeCompress
+-       printf ("%d in_fname = %s out_fname = %s CR %d C/D = %d \n", argc, argv[1], argv[2], atoi(argv[3]), atoi(argv[4]));
+-//lfsfile_close (&in);
++    int da_x0, da_y0, da_x1, da_y1;
++    char ff[20]="test.j2k";
++ 
++    da_x0 = 0;
++    da_y0 = 0;
++    da_x1 = 256;
++    da_y1= 256;
++    printf("da_xo %d da_y0 %d\n",da_x0,da_y0);
++    printf("da_x1 %d da_y1 %d ff %s\n",da_x1,da_y1,ff);
++    //decom_test(da_x0,da_y0,da_x1,da_y1,ff);
++    
++
+ }
+
+
+devel@pi5-70:~/pshell/build $ ../cmpico
+Using PICO_SDK_PATH from environment ('/home/devel/pico2/pico-sdk')
+PICO_SDK_PATH is /home/devel/pico2/pico-sdk
+Target board (PICO_BOARD) is 'pico'.
+Using board configuration from /home/devel/pico2/pico-sdk/src/boards/include/boards/pico.h
+Pico Platform (PICO_PLATFORM) is 'rp2040'.
+-- Defaulting build type to 'Release' since not specified.
+Defaulting compiler (PICO_COMPILER) to 'pico_arm_cortex_m0plus_gcc' since not specified.
+Configuring toolchain based on PICO_COMPILER 'pico_arm_cortex_m0plus_gcc'
+Defaulting PICO_GCC_TRIPLE to 'arm-none-eabi'
+-- The C compiler identification is GNU 12.2.1
+-- The CXX compiler identification is GNU 12.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/arm-none-eabi-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+Build type is Release
+-- Found Python3: /usr/bin/python3 (found version "3.11.2") found components: Interpreter 
+TinyUSB available at /home/devel/pico2/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040; enabling build support for USB.
+BTstack available at /home/devel/pico2/pico-sdk/lib/btstack
+cyw43-driver available at /home/devel/pico2/pico-sdk/lib/cyw43-driver
+lwIP available at /home/devel/pico2/pico-sdk/lib/lwip
+mbedtls available at /home/devel/pico2/pico-sdk/lib/mbedtls
+-- Found Git: /usr/bin/git (found version "2.39.5") 
+fatal: No names found, cannot describe anything.
+-----------------------------------------------------
+-- CMake 3.25.1
+-- Build Release / PICO
+-- USB_CONSOLE 0, using UART
+-- building for pico, using flash file system
+-----------------------------------------------------
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/devel/pshell/build
+
+[ 81%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/bio.c.o
+[ 82%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/cio.c.o
+[ 83%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/dwt.c.o
+[ 84%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/event.c.o
+[ 84%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/function_list.c.o
+[ 85%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/image.c.o
+[ 86%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/invert.c.o
+[ 87%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/j2k.c.o
+[ 89%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/mct.c.o
+[ 90%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/openjpeg.c.o
+[ 90%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/opj_clock.c.o
+[ 91%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/opj_malloc.c.o
+[ 92%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/pi.c.o
+[ 93%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/rd-wr-ops.c.o
+[ 94%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/sparse_array.c.o
+[ 94%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o
+[ 95%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/tcd.c.o
+[ 96%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/tgt.c.o
+[ 97%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/thread.c.o
+[ 98%] Building C object CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/dwtlift.c.o
+/home/devel/pshell/openjpeg/openjpeg-lib/dwtlift.c: In function 'decompress':
+/home/devel/pshell/openjpeg/openjpeg-lib/dwtlift.c:716:17: warning: implicit declaration of function 'octave_write_byte' [-Wimplicit-function-declaration]
+  716 |                 octave_write_byte(r_decompress_fn,r_decompress,da_x1*da_y1);
+      |                 ^~~~~~~~~~~~~~~~~
+/home/devel/pshell/openjpeg/openjpeg-lib/dwtlift.c: In function 'lift_config':
+/home/devel/pshell/openjpeg/openjpeg-lib/dwtlift.c:1131:17: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+ 1131 |         lclip = (char *)*bufferptr;
+      |                 ^
+[100%] Linking CXX executable pshell.elf
+[100%] Built target pshell
+
+devel@pi5-70:~/pshell/build $ scp pshell.uf2 pi4-50:/media/devel/RPI-RP2/
+
+    cat - display a text file, use -p to paginate
+     cc - compile & run C source file. cc -h for help
+     cd - change directory
+  clear - clear the screen
+     cp - copy a file
+ format - format the filesystem
+    hex - simple hexdump, use -p to paginate
+     ls - list a directory, -a to show hidden files
+  mkdir - create a directory
+  mount - mount the filesystem
+     mv - rename a file or directory
+   news - what's new in this release
+   quit - shutdown the system
+ reboot - restart the system                                                    
+     rm - remove a file or directory. -r for recursive                          
+ status - display the filesystem status                                         
+    tar - manage tar archives                                                   
+ umount - unmount the filesystem                                                
+version - display pico shell's version                                          
+     vi - edit file(s) with vi                                                  
+   xget - xmodem get a file (pico->host)                                        
+   xput - xmodem put a file (host->pico)                                        
+   yget - ymodem get a file (pico->host)                                        
+   yput - ymodem put a file (host->pico)                                        
+  lsklt - lifting step 0 klt 1                                                  
+    j2k - In File Out Frile Compression Ratio Compression 0 Decompression 1     
+      # - comment line                                                          
+                                                                                
+/: mount                                                                        
+                                                                                
+filesystem is mounted                                                           
+                                                                                
+/: ls                                                                           
+                                                                                
+    4224 a64.bin                                                                
+    4224 img1.pgm                                                               
+                                                        
+xput lena_rgb_64.bin
+   1|Sending lena_rgb_64.bmp, 97 blocks: Give your local XMODEM receive com|    
+  10|mand now.                                                             |    
+    |Bytes Sent:  12544   BPS:3027                                         |    
+/: r|                                                                      |    
+    |Transfer complete                                                     |    
+file|                                                                      |    
+    | READY: press any key to continue... 
+
+xput test.j2k
+
+file|Sending test.j2k, 59 blocks: Give your local XMODEM receive command no|    
+    |w.                                                                    |    
+/: l|Bytes Sent:   7680   BPS:2909                                         |    
+    |                                                                      |    
+    |Transfer complete                                                     |    
+    |                                                                      |    
+  10| READY: press any key to continue...
+
+/: ls                                                                           
+                                                                                
+    4224 a64.bin                                                                
+    4224 img1.pgm                                                               
+   12544 lena_rgb_64.bmp                                                        
+    7680 test.j2k
+/: j2k                                                                          
+da_xo 0 da_y0 0                                                                 
+da_x1 256 da_y1 256 ff test.j2k
+
+devel@pi4-50:~/dwtlift-pi/pi-myTTEncoder $ od -x lena_rgb_64.bmp | less
+
+0000000 4d42 308a 0000 0000 0000 008a 0000 007c
+0000020 0000 0040 0000 0040 0000 0001 0018 0000
+0000040 0000 3000 0000 0b13 0000 0b13 0000 0000
+0000060 0000 0000 0000 0000 00ff ff00 0000 00ff
+0000100 0000 0000 0000 4742 7352 0000 0000 0000
+0000120 0000 0000 0000 0000 0000 0000 0000 0000
+*
+0000160 0000 0000 0000 0000 0000 0002 0000 0000
+0000200 0000 0000 0000 0000 0000 1b3d 595d 7742 
+	.
+	.
+	.
+0027740 cd66 4056 58a2 ab47 4a55 55b0 b14b 4b55
+0027760 57b1 ba52 5a59 5cc4 ca5e 625f 61cd cc64
+0030000 635f 61cc cd64 6562 61d0 d265 6560 62d0
+0030020 cf65 6762 65cf ce66 6667 60cb cc63 6662
+0030040 5fcb ce63 6660 61d0 ce64 6563 61cd cc63
+0030060 6261 61ca c961 6162 60ca c760 5a60 59bf
+0030100 b151 5b5b 6ec1 d779 8671 6adc dc7e 806e
+0030120 6cdc de81 7f68 67de de80 836a 6ddd dc84
+0030140 a47b 9ae6 f8cf b789 5ce8 ae56 585d 5db8
+0030160 bb5c 5d61 5cbb c05b 5e5e 5dc1 c15d 5f61
+0030200 5ec2 c35e 5b5e 69bf c872
+
+
+/: hex -p lena_rgb_64.bmp                                                       
+0000 424d8a30 00000000 00008a00 00007c00 'BM.0..........|.'                     
+0010 00004000 00004000 00000100 18000000 '..@...@.........'                     
+0020 00000030 0000130b 0000130b 00000000 '...0............'                     
+0030 00000000 00000000 ff0000ff 0000ff00 '................'                     
+0040 00000000 00004247 52730000 00000000 '......BGRs......'                     
+0050 00000000 00000000 00000000 00000000 '................'                     
+0060 00000000 00000000 00000000 00000000 '................'                     
+0070 00000000 00000000 00000200 00000000 '................'                     
+0080 00000000 00000000 00003d1b 5d594277 '..........=.]YBw'                     
+0090 a8b4d599 abd1636f ca7798e9 7da1ee6e '......co.w..}..n'
+	.
+	.
+	.
+3050 dc6c81de 687fde67 80de6a83 dd6d84dc '.l..h..g..j..m..'                     
+3060 7ba4e69a cff889b7 e85c56ae 5d58b85d '{........\V.]X.]'                     
+3070 5cbb615d bb5c5bc0 5e5ec15d 5dc1615f '\.a].\[.^^.]].a_'                     
+3080 c25e5ec3 5e5bbf69 72c81a1a 1a1a1a1a '.^^.^[.ir.......'                     
+3090 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30a0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30b0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30c0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30d0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30e0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+30f0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'	
+
+devel@pi4-50:~/dwtlift-pi/pi-myTTEncoder $ od -x test.j2k | less
+0000000 4fff 51ff 2f00 0000 0000 4000 0000 4000
+0000020 0000 0000 0000 0000 0000 4000 0000 4000
+0000040 0000 0000 0000 0000 0300 0107 0701 0101
+0000060 0107 ff01 0052 000c 0000 0001 0405 0004
+0000100 ff00 005c 4223 2077 f076 f076 c076 006f
+0000120 006f e06e 5067 5067 6867 0550 0550 4750
+0000140 d357 d357 6257 64ff 2500 0100 7243 6165
+0000160 6574 2064 7962 4f20 6570 4a6e 4550 2047
+0000200 6576 7372 6f69 206e 2e32 2e32 ff30 0090
+0000220 000a 0000 1d00 002e ff01 c393 07f8 8d0a
+0000240 17b6 1ea7 c348 08f8 9708 346c b9bb dfc3
+0000260 f2c3 0c07 ba5f 692c 6362 f8c3 8107 03f9
+	.
+	.
+	.
+0016540 1097 9baf 737d 3aa0 de2b 22ec 4dd5 3e6d
+0016560 d96c e91c 86b2 18d1 fa49 24b2 53f2 0873
+0016600 410c dc75 ce54 3c8c 3965 3e1a d966 104a
+0016620 275b 2948 fda5 d5ef b63b 1e64 a0f2 159a
+0016640 ea5b 0ef7 fc3e 61b3 9314 0556 6c6a 5206
+0016660 9602 d2a7 7c8a f5c2 a968 ff88 00d9
+
+/: hex -p test.j2k
+0000 ff4fff51 002f0000 00000040 00000040 '.O.Q./.....@...@'                     
+0010 00000000 00000000 00000040 00000040 '...........@...@'                     
+0020 00000000 00000000 00030701 01070101 '................'                     
+0030 070101ff 52000c00 00000100 05040400 '....R...........'                     
+0040 00ff5c00 23427720 76f076f0 76c06f00 '..\.#Bw v.v.v.o.'                     
+0050 6f006ee0 67506750 67685005 50055047 'o.n.gPgPghP.P.PG'                     
+0060 57d357d3 5762ff64 00250001 43726561 'W.W.Wb.d.%..Crea'                     
+0070 74656420 6279204f 70656e4a 50454720 'ted by OpenJPEG '                     
+0080 76657273 696f6e20 322e322e 30ff9000 'version 2.2.0...' 
+	.
+	.
+	.
+1d50 130ec553 10dcbff9 2c0ed7ef 4504611b '...S....,...E.a.'                     
+1d60 9710af9b 7d73a03a 2bdeec22 d54d6d3e '....}s.:+..".Mm>'                     
+1d70 6cd91ce9 b286d118 49fab224 f2537308 'l.......I..$.Ss.'                     
+1d80 0c4175dc 54ce8c3c 65391a3e 66d94a10 '.Au.T..<e9.>f.J.'                     
+1d90 5b274829 a5fdefd5 3bb6641e f2a09a15 '['H)....;.d.....'                     
+1da0 5beaf70e 3efcb361 14935605 6a6c0652 '[...>..a..V.jl.R'                     
+1db0 0296a7d2 8a7cc2f5 68a988ff d91a1a1a '.....|..h.......'                     
+1dc0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+1dd0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+1de0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'                     
+1df0 1a1a1a1a 1a1a1a1a 1a1a1a1a 1a1a1a1a '................'
+
+
