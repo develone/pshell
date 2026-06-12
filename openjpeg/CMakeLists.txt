@@ -59,6 +59,9 @@ target_sources(openjpeg INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.c
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.h
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tls_keys.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.c
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/format_defs.h
     
 
 
