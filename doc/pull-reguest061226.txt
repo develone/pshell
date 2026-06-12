@@ -1,0 +1,5 @@
+I have been working for many years trying to get the openjpeg jpeg 2000 running on various hardware. First in bare metal using Lazarus IDE ultibo edition
+https://github.com/develone/Ultibo_Projects/tree/master/jpeg2000 several years. Recently I was able to get this running on Raspberry Pi4.
+The Raspberry Pi4 code is found at https://github.com/develone/dwtlift-pi. Now I am starting the https://github.com/develone/pshell/tree/test-dev branch.
+This documents the current status of adding the 20 plus C files and header files https://github.com/develone/pshell/blob/test-dev/doc/notes-testing-adding-dwtlift.txt
+Base on current tests it might be more of task, since it appears the pshell file system is Big Endian.
