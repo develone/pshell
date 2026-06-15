@@ -1,0 +1,52 @@
+Pico Shell - Copyright (c) 1883 Thomas Edison
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE file for details.
+
+platform: pico, console: UART0 [80 X 24], filesystem: flash
+
+Pico Shell - Copyright (c) 1883 Thomas Edison
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions. See LICENSE file for details.
+
+platform: pico, console: UART0 [80 X 24], filesystem: flash
+
+file system automatically mounted
+
+enter a command or hit ENTER for command list
+
+/: ls
+
+    4224 a64.bin
+     384 blink.c
+    4224 img1.pgm
+   12544 lena_rgb_64.bmp
+    7680 test.j2k
+
+/: j2k lena_rgb_64.bmp test.j2k 25 0
+5 lena_rgb_64.bmp test.j2k 25 0  	printf ("%d %s %s %d %d\n", argc, argv[1], argv[2], atoi(argv[3]),
+atoi(argv[4]));
+0
+B M                                                                             
+                                                                                
+0x3d 0x1b 0x5d 0x59 0x42 0x77 0xa8 0xb4 0xd5 0x99       
+														for (ii = 138; ii < 148; ii++) {
+															printf ("0x%x ", buf[ii]);
+														}
+
+                             
+                                                                                
+0xab 0xd1 0x63 0x6f 0xca 0x77 0x98 0xe9 0x7d 0xa1   
+														printf("\n\n");
+														for (ii = 148; ii < 158; ii++) {
+															printf ("0x%x ", buf[ii]);
+														}
+														printf("\n\n");
+                                                                                
+da_xo 0 da_y0 0                                                                 
+da_x1 256 da_y1 256 ff test.j2k 
+
+00000000   42 4D 8A 30 
+00000080   00 00 00 00  00 00 00 00  00 00 3D 1B  5D 59 42 77  ..........=.]YBw
+00000090   A8 B4 D5 99  AB D1 63 6F  CA 77 98 E9  7D A1 EE 6E  ......co.w..}..n
