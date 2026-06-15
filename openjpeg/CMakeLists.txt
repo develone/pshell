@@ -43,7 +43,7 @@ target_sources(openjpeg INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.c
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.h
 		${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rdwr.h
-		${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rd-wr-ops,c
+		${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rd-wr-ops.c
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/sparse_array.c
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/sparse_array.h
     ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1.c
