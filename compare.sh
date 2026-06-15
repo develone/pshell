@@ -37,10 +37,11 @@ diff openjpeg/openjpeg-lib/opj_includes.h ~/dwtlift-pi/encode_decode/src/opj_inc
 diff openjpeg/openjpeg-lib/opj_intmath.h ~/dwtlift-pi/encode_decode/src/opj_intmath.h
 diff openjpeg/openjpeg-lib/opj_inttypes.h ~/dwtlift-pi/encode_decode/src/opj_inttypes.h
 diff openjpeg/openjpeg-lib/opj_malloc.c ~/dwtlift-pi/encode_decode/src/opj_malloc.c
-diff openjpeg/openjpeg-lib/pi.h ~/dwtlift-pi/encode_decode/src/pi.h 
-diff openjpeg/openjpeg-lib/opj_stdint.h ~/dwtlift-pi/encode_decode/src/opj_stdint.h
-diff openjpeg/openjpeg-lib/pi.c ~/dwtlift-pi/encode_decode/src/pi.c
 diff openjpeg/openjpeg-lib/pi.h ~/dwtlift-pi/encode_decode/src/pi.h
+diff openjpeg/openjpeg-lib/pi.c ~/dwtlift-pi/encode_decode/src/pi.c 
+diff openjpeg/openjpeg-lib/opj_stdint.h ~/dwtlift-pi/encode_decode/src/opj_stdint.h
+diff openjpeg/openjpeg-lib/rdwr.h ~/dwtlift-pi/encode_decode/src/rdwr,h
+diff openjpeg/openjpeg-lib/rd-wr-ops.c ~/dwtlift-pi/encode_decode/src/rd-wr-ops.c
 diff openjpeg/openjpeg-lib/sparse_array.h ~/dwtlift-pi/encode_decode/src/sparse_array.h
 diff openjpeg/openjpeg-lib/sparse_array.c ~/dwtlift-pi/encode_decode/src/sparse_array.c
 diff openjpeg/openjpeg-lib/t1.h ~/dwtlift-pi/encode_decode/src/t1.h
