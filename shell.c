@@ -546,7 +546,10 @@ j2k_cmd (void)
     char ff[20]="test.j2k";
     int n,loop;
     bitmap_header* hp;
-    /*The values below are from the intial values set */
+    /*The values below are from the intial values set 
+    * struct CompressImage s1 = {6,1,60,0,25,1,24,196608,256,256,0};
+    * in header encode_decode.h*/
+    
     printf("s1 0x%x \n",&s1);
     printf("s1.dec %d \n",s1.dec);
     printf("s1.enc %d \n",s1.enc);
@@ -556,9 +559,12 @@ j2k_cmd (void)
     printf("s1.bpp %d \n",s1.bpp);
     printf("s1.imgsz %d \n",s1.imgsz);
     printf("s1.him %d \n",s1.him);
-    printf("s1.wim %d \n",s1.wim);
-    /*The values above are from the intial values set */
-    printf("s1.bufferptr 0x%x    \n",s1.bufferptr);
+    printf("s1.wim %d \n",s1.wim);    
+    printf("s1.bufferptr 0x%x \n\n",s1.bufferptr);
+    
+    /*The values below are from the intial values set 
+    * struct CompressImage s1 = {6,1,60,0,25,1,24,196608,256,256,0};
+    * in header encode_decode.h*/    
     /*code above  is from fucnction lsklt above*/
     
     /*code below is from fucnction lsklt above*/
@@ -569,14 +575,16 @@ j2k_cmd (void)
     //if (lfsfile_open(&in, argv[1], LlfsO_RDONLY) < 0)
     //printf("error in open\n");        
 
-    printf ("%d\n", fs_file_open (&in, argv[1], LFS_O_RDONLY));
+    printf ("return of open %d\n", fs_file_open (&in, argv[1], LFS_O_RDONLY));
     int l = fs_file_size (&in), charcnt = 0, charsent = 0;
+     
     int ii = 0, jj = 0, flag;
     char *bufptr;
    
     //char *outstrptr;
     hp = malloc (sizeof(bitmap_header));
-	//char *outstr = malloc (75 + 1);
+	printf("sizeof(bitmap_header) %d \n", sizeof(bitmap_header));
+    l = sizeof(bitmap_header);
     fs_file_read (&in, hp, l);
     printf("number of header points %d \n",l);
     
@@ -587,9 +595,30 @@ j2k_cmd (void)
     s1.him = hp->height;
     s1.wim = hp->width;
     printf("s1.him = %d s1.wim = %d\n",s1.him,s1.wim);
-    free(hp);
+    printf("hp->fileheader 0x%x\n",hp->fileheader);
+    printf("dataoffset 0x%x dataoffset %d\n",hp->fileheader.dataoffset,hp->fileheader.dataoffset);
+    unsigned int offset;
+    l = offset;
+    offset = hp->fileheader.dataoffset;
+    printf("offset 0x%x \n",offset);
+    fs_file_read (&in, hp,l);
+    printf("number of offset points %d \n",l);
      
-    hp = malloc (sizeof(s1.imgsz));
+    hp = malloc (s1.imgsz);
+    l = s1.imgsz;
+    fs_file_read (&in, hp,l);
+    printf("number of RGB points %d \n",l);
+    s1.bufferptr = hp;
+    bufptr = hp;
+    printf("hp 0x%x s1.bufferptr 0x%x \n",hp,s1.bufferptr);
+    
+    for(l = 0;l < 16; l++) {
+        printf("0x%x ",*bufptr);
+        bufptr++;
+    }
+    printf("\n");
+    
+    printf("hp 0x%x \n",hp);
     //malloc for INFOHEADER
     /*     
     hp=(bitmap_header*)malloc(sizeof(sizeof(bitmap_header)));
