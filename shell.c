@@ -598,22 +598,32 @@ j2k_cmd (void)
     printf("hp->fileheader 0x%x\n",hp->fileheader);
     printf("dataoffset 0x%x dataoffset %d\n",hp->fileheader.dataoffset,hp->fileheader.dataoffset);
     unsigned int offset;
-    l = offset;
+    
     offset = hp->fileheader.dataoffset;
     printf("offset 0x%x \n",offset);
+    hp = malloc (offset);
+    l = offset-54;
     fs_file_read (&in, hp,l);
     printf("number of offset points %d \n",l);
-     
+    bufptr = hp;
+    for(l = 0;l < offset-54; l++) {
+        printf("0x%x ",*bufptr,bufptr);
+        
+        bufptr++;
+    }
+    printf("\n"); 
     hp = malloc (s1.imgsz);
+    printf("hp 0x%x\n",hp);
     l = s1.imgsz;
     fs_file_read (&in, hp,l);
     printf("number of RGB points %d \n",l);
-    s1.bufferptr = hp;
-    bufptr = hp;
-    printf("hp 0x%x s1.bufferptr 0x%x \n",hp,s1.bufferptr);
+    s1.bufferptr = hp +offset;
+    bufptr = s1.bufferptr;
+    printf("hp 0x%x s1.bufferptr 0x%x bufptr 0x%x \n",hp,s1.bufferptr,bufptr);
     
     for(l = 0;l < 16; l++) {
-        printf("0x%x ",*bufptr);
+        printf("0x%x 0x%x ",*bufptr,bufptr);
+        
         bufptr++;
     }
     printf("\n");
