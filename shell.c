@@ -622,7 +622,7 @@ j2k_cmd (void)
     printf("hp 0x%x s1.bufferptr 0x%x bufptr 0x%x \n",hp,s1.bufferptr,bufptr);
     
     for(l = 0;l < 16; l++) {
-        printf("0x%x 0x%x ",*bufptr,bufptr);
+        printf("0x%x ",*bufptr);
         
         bufptr++;
     }
