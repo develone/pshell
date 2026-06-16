@@ -540,18 +540,31 @@ j2k_cmd (void)
 {
   if (check_mount (true))
     return;
-    printf ("%d %s %s %d %d\n", argc, argv[1], argv[2], atoi(argv[3]),atoi(argv[4]));
+
+    printf (" %d  %s %s \n", argc, argv[1],argv[2]);
     int da_x0, da_y0, da_x1, da_y1;
     char ff[20]="test.j2k";
     int n,loop;
     bitmap_header* hp;
+    /*The values below are from the intial values set */
+    printf("s1 0x%x \n",&s1);
+    printf("s1.dec %d \n",s1.dec);
+    printf("s1.enc %d \n",s1.enc);
+    printf("s1.TCP_DISTORATIO %d \n",s1.TCP_DISTORATIO);
+    printf("s1.CR %d \n",s1.CR);
+    printf("s1.flg %d \n",s1.flg); 
+    printf("s1.bpp %d \n",s1.bpp);
+    printf("s1.imgsz %d \n",s1.imgsz);
+    printf("s1.him %d \n",s1.him);
+    printf("s1.wim %d \n",s1.wim);
+    /*The values above are from the intial values set */
+    printf("s1.bufferptr 0x%x    \n",s1.bufferptr);
+    /*code above  is from fucnction lsklt above*/
+    
     /*code below is from fucnction lsklt above*/
     lfs_file_t in;
-    ncols = 64;
-    nrows = 64;
-    ptrs.w = 64;
-    ptrs.h = 64;
-    ptrs.inp_buf = ptrs.inpbuf;
+     
+    //ptrs.inp_buf = ptrs.inpbuf;
      
     //if (lfsfile_open(&in, argv[1], LlfsO_RDONLY) < 0)
     //printf("error in open\n");        
@@ -562,23 +575,21 @@ j2k_cmd (void)
     char *bufptr;
    
     //char *outstrptr;
-    char *buf = malloc (l + 1);
-	char *outstr = malloc (75 + 1);
-    fs_file_read (&in, buf, l);
-    for (ii = 0; ii < 2; ii++) {
-        printf ("%c ", buf[ii]);
-    }
-    printf("\n\n");
-    for (ii = 138; ii < 148; ii++) {
-        printf ("0x%x ", buf[ii]);
-    }
-    printf("\n\n");
-        for (ii = 148; ii < 158; ii++) {
-        printf ("0x%x ", buf[ii]);
-    }
-    printf("\n\n");
-    /*code above  is from fucnction lsklt above*/
+    hp = malloc (sizeof(bitmap_header));
+	//char *outstr = malloc (75 + 1);
+    fs_file_read (&in, hp, l);
+    printf("number of header points %d \n",l);
     
+    s1.bpp = hp->bitsperpixel;
+    printf("s1.bpp %d \n", s1.bpp);
+    s1.imgsz = hp->bitmapsize;
+    printf("s1.imgsz %d \n",s1.imgsz);
+    s1.him = hp->height;
+    s1.wim = hp->width;
+    printf("s1.him = %d s1.wim = %d\n",s1.him,s1.wim);
+    free(hp);
+     
+    hp = malloc (sizeof(s1.imgsz));
     //malloc for INFOHEADER
     /*     
     hp=(bitmap_header*)malloc(sizeof(sizeof(bitmap_header)));
@@ -590,8 +601,8 @@ j2k_cmd (void)
     */
     da_x0 = 0;
     da_y0 = 0;
-    da_x1 = 256;
-    da_y1= 256;
+    da_x1 = s1.him;
+    da_y1= s1.wim;
     printf("da_xo %d da_y0 %d\n",da_x0,da_y0);
     printf("da_x1 %d da_y1 %d ff %s\n",da_x1,da_y1,ff);
     //decom_test(da_x0,da_y0,da_x1,da_y1,ff);
