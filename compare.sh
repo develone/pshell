@@ -56,3 +56,4 @@ diff openjpeg/openjpeg-lib/tgt.c ~/dwtlift-pi/encode_decode/src/tgt.c
 diff openjpeg/openjpeg-lib/thread.h ~/dwtlift-pi/encode_decode/src/thread.h
 diff openjpeg/openjpeg-lib/thread.c ~/dwtlift-pi/encode_decode/src/thread.c
 diff openjpeg/openjpeg-lib/tls_keys.h ~/dwtlift-pi/encode_decode/src/tls_keys.h
+diff encode_decode.h ~/dwtlift-pi/encode_decode/encode_decode.h
