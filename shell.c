@@ -532,6 +532,7 @@ P5
   printf ("%d \n", fs_file_open (&out, argv[2], LFS_O_WRONLY | LFS_O_CREAT));
   //lfsfile_write (&out, outstr, charsent);
   fs_file_close (&out);
+  //lift_config(&s1);
 }
 
  
@@ -569,7 +570,7 @@ j2k_cmd (void)
     
     /*code below is from fucnction lsklt above*/
     lfs_file_t in;
-     
+    lfs_t lfs; 
     //ptrs.inp_buf = ptrs.inpbuf;
      
     //if (lfsfile_open(&in, argv[1], LlfsO_RDONLY) < 0)
@@ -582,6 +583,7 @@ j2k_cmd (void)
     char *bufptr;
    
     //char *outstrptr;
+    /*The bitmap_header is read to obtain the offset = hp->fileheader.dataoffset*/
     hp = malloc (sizeof(bitmap_header));
 	printf("sizeof(bitmap_header) %d \n", sizeof(bitmap_header));
     l = sizeof(bitmap_header);
@@ -601,12 +603,14 @@ j2k_cmd (void)
     
     offset = hp->fileheader.dataoffset;
     printf("offset 0x%x \n",offset);
+    offset = offset - sizeof(bitmap_header);
+    /*The offset -  bitmap_header read*/
     hp = malloc (offset);
-    l = offset-54;
+    l = offset;
     fs_file_read (&in, hp,l);
-    printf("number of offset points %d \n",l);
+    printf("number of offset - sizeof(bitmap_header) points %d \n",l);
     bufptr = hp;
-    for(l = 0;l < offset-54; l++) {
+    for(l = 0;l < offset; l++) {
         printf("0x%x ",*bufptr,bufptr);
         
         bufptr++;
@@ -617,7 +621,7 @@ j2k_cmd (void)
     l = s1.imgsz;
     fs_file_read (&in, hp,l);
     printf("number of RGB points %d \n",l);
-    s1.bufferptr = hp +offset;
+    s1.bufferptr = hp;
     bufptr = s1.bufferptr;
     printf("hp 0x%x s1.bufferptr 0x%x bufptr 0x%x \n",hp,s1.bufferptr,bufptr);
     
@@ -629,23 +633,15 @@ j2k_cmd (void)
     printf("\n");
     
     printf("hp 0x%x \n",hp);
-    //malloc for INFOHEADER
-    /*     
-    hp=(bitmap_header*)malloc(sizeof(sizeof(bitmap_header)));
-    printf("hp 0x%x *hp 0x%x \n",hp,*hp);
  
-    n=fread(hp, sizeof(bitmap_header), 1, in);
-    printf("number of header points %d \n",n);
-    printf("n %d \n",n);
-    */
     da_x0 = 0;
     da_y0 = 0;
     da_x1 = s1.him;
     da_y1= s1.wim;
-    printf("da_xo %d da_y0 %d\n",da_x0,da_y0);
+    printf("da_x0 %d da_y0 %d\n",da_x0,da_y0);
     printf("da_x1 %d da_y1 %d ff %s\n",da_x1,da_y1,ff);
     //decom_test(da_x0,da_y0,da_x1,da_y1,ff);
-    
+    fs_file_close(&in);
 
 }
 
