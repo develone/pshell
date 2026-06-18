@@ -29,6 +29,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "opj_includes.h"
+
+#include "thread.h"
 #include <assert.h>
 
 #ifdef MUTEX_win32
@@ -42,8 +45,6 @@
 
 #include <windows.h>
 #include <process.h>
-
-#include "opj_includes.h"
 
 OPJ_BOOL OPJ_CALLCONV opj_has_thread_support(void)
 {
@@ -288,10 +289,6 @@ void opj_thread_join(opj_thread_t* thread)
 #include <stdlib.h>
 #include <unistd.h>
 
-/* Moved after all system includes, and in particular pthread.h, so as to */
-/* avoid poisoning issuing with malloc() use in pthread.h with ulibc (#1013) */
-#include "opj_includes.h"
-
 OPJ_BOOL OPJ_CALLCONV opj_has_thread_support(void)
 {
     return OPJ_TRUE;
@@ -427,8 +424,6 @@ void opj_thread_join(opj_thread_t* thread)
 
 #else
 /* Stub implementation */
-
-#include "opj_includes.h"
 
 OPJ_BOOL OPJ_CALLCONV opj_has_thread_support(void)
 {
@@ -723,8 +718,6 @@ static OPJ_BOOL opj_thread_pool_setup(opj_thread_pool_t* tp, int num_threads)
         tp->worker_threads[i].thread = opj_thread_create(opj_worker_thread_function,
                                        &(tp->worker_threads[i]));
         if (tp->worker_threads[i].thread == NULL) {
-            opj_mutex_destroy(tp->worker_threads[i].mutex);
-            opj_cond_destroy(tp->worker_threads[i].cond);
             tp->worker_threads_count = i;
             bRet = OPJ_FALSE;
             break;
@@ -734,7 +727,7 @@ static OPJ_BOOL opj_thread_pool_setup(opj_thread_pool_t* tp, int num_threads)
     /* Wait all threads to be started */
     /* printf("waiting for all threads to be started\n"); */
     opj_mutex_lock(tp->mutex);
-    while (tp->waiting_worker_thread_count < tp->worker_threads_count) {
+    while (tp->waiting_worker_thread_count < num_threads) {
         opj_cond_wait(tp->cond, tp->mutex);
     }
     opj_mutex_unlock(tp->mutex);
