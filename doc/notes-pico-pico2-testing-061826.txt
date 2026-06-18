@@ -18,7 +18,7 @@ Resolving deltas: 100% (13201/13201), done.
 Submodule path 'littlefs/module': checked out 'd01280e64934a09ba16cac60cf9d3a37e228bb66'
 devel@pi5-70:~ $ cd pshell
 devel@pi5-70:~/pshell $ mkdir build-rp2350	if pico devel@pi5-70:~/pshell if pico $ mkdir build-rp2040
-devel@pi5-70:~/pshell $ cd build-rp2350	devel@pi5-70:~/pshell $ cd build-rp2040
+devel@pi5-70:~/pshell $ cd build-rp2350	if pico devel@pi5-70:~/pshell $ cd build-rp2040
 devel@pi5-70:~/pshell/build-rp2350 $ ../cmpico2	if pico devel@pi5-70:~/pshell/build-rp2040 $ ../cmpico
 Using PICO_SDK_PATH from environment ('/home/devel/pico2/pico-sdk')
 PICO_SDK_PATH is /home/devel/pico2/pico-sdk
