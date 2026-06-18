@@ -911,7 +911,7 @@ printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
 	struct GPU_FFT_HOST host;
 	
 	printf ("Hello Ultibo from C!! Called by Pascal ");
-	printf("size %ld ",imgsz);
+	printf("size %d ",imgsz);
 	printf("pointer passed  %x ",bufferptr);
   
 	printf("starting compression: %ld seconds %ld useconds %ld \n", mtime,seconds, useconds);
@@ -1008,7 +1008,11 @@ printf("data bufferptr 0x%x first byte %d \n",bufferptr, *bufferptr);
     tile_width = width;
     tile_height = height;
     comp_prec = 8;
+    FILTER = 0;
+    //FILTER 0 5/3 DWT
+    //FILTER 1 9/7 DWT    
     irreversible = FILTER;
+
     output_file = "test.j2k";
     
   if( num_comps > NUM_COMPS_MAX )
