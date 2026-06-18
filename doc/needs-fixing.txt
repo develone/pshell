@@ -1,0 +1,115 @@
+[  5%] Linking CXX executable pshell.elf
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/openjpeg.c.o: in function `opj_create_compress':
+/home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:651: undefined reference to `opj_jp2_create'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_end_compress'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_start_compress'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_write_tile'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_destroy'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/openjpeg.c:578: undefined reference to `opj_jp2_setup_encoder'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/opj_malloc.c.o: in function `opj_aligned_alloc_n':
+/home/devel/pshell/openjpeg/openjpeg-lib/opj_malloc.c:61: undefined reference to `posix_memalign'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2162: undefined reference to `opj_mqc_resetstates'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2163: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2164: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2165: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2166: undefined reference to `opj_mqc_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2178: undefined reference to `opj_mqc_restart_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_refpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2228: undefined reference to `opj_mqc_numbytes'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_refpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:346: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:368: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:346: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:368: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:346: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o:/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:368: more undefined references to `opj_mqc_encode' follow
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:344: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:344: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:344: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:344: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2178: undefined reference to `opj_mqc_restart_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1069: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1091: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1069: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1091: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1181: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2211: undefined reference to `opj_mqc_erterm_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2217: undefined reference to `opj_mqc_numbytes'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1181: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1186: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1187: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:362: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1181: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:362: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:362: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:362: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1181: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:344: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2238: undefined reference to `opj_mqc_reset_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2176: undefined reference to `opj_mqc_bypass_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2213: undefined reference to `opj_mqc_flush'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_sigpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:362: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_refpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2238: undefined reference to `opj_mqc_reset_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2222: undefined reference to `opj_mqc_bypass_get_extra_bytes'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2208: undefined reference to `opj_mqc_bypass_flush_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_refpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:733: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_clnpass':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:1181: undefined reference to `opj_mqc_encode'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2193: undefined reference to `opj_mqc_segmark_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_enc_refpass_step':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:731: undefined reference to `opj_mqc_bypass_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/t1.c.o: in function `opj_t1_encode_cblk':
+/home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2246: undefined reference to `opj_mqc_numbytes'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2162: undefined reference to `opj_mqc_resetstates'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2163: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2164: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2165: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2166: undefined reference to `opj_mqc_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2178: undefined reference to `opj_mqc_restart_init_enc'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2162: undefined reference to `opj_mqc_resetstates'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2163: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/t1.c:2164: undefined reference to `opj_mqc_setstate'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/tcd.c.o: in function `opj_tcd_rateallocate':
+/home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:551: undefined reference to `opj_t2_create'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:613: undefined reference to `opj_t2_destroy'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:597: undefined reference to `opj_t2_encode_packets'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:567: undefined reference to `opj_t2_encode_packets'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: CMakeFiles/pshell.dir/openjpeg/openjpeg-lib/tcd.c.o: in function `opj_tcd_t2_encode':
+/home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:2209: undefined reference to `opj_t2_create'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:2214: undefined reference to `opj_t2_encode_packets'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:2232: undefined reference to `opj_t2_destroy'
+/usr/lib/gcc/arm-none-eabi/12.2.1/../../../arm-none-eabi/bin/ld: /home/devel/pshell/openjpeg/openjpeg-lib/tcd.c:2228: undefined reference to `opj_t2_destroy'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/pshell.dir/build.make:1783: pshell.elf] Error 1
+make[1]: *** [CMakeFiles/Makefile2:1998: CMakeFiles/pshell.dir/all] Error 2
