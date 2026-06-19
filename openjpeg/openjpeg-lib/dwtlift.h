@@ -11,6 +11,6 @@ double sqrt(double x);
 //void lift_config(struct CompressImage *s); 
 //void lift_config(int dec, int enc, int TCP_DISTORATIO, int FILTER,  int CR, int flg, int bp, long imgsz,long him,long wim, char *bufferptr);
 void decom_test(int x0, int y0, int x1, int y1,char *ff_in);
- 
-
+int decompress(int da_x0, int da_y0, int da_x1, int da_y1,const char *input_file); 
+int octave_write_byte(const char * fn,char * d_ptr, int sz);
 typedef int int32;

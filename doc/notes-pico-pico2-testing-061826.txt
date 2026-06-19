@@ -1,4 +1,61 @@
 06/18/26 pico testing j2k lena_rgb_64.bmp	pico2 testing j2k lena_rgb_64.bmp
+PICO_EXTRAS_PATH=/home/devel/pico-extras
+PICTOOL_FETCH_FROM_GITHUB=/home/devel/pico2/BUILT_PICOTOOL
+devel@pi5-70:~/pshell/build-rp2040 $ picotool version
+picotool v2.1.1 (Linux, GNU-12.2.0, Release)
+PICO_SDK_PATH=/home/devel/pico2/pico-sdk
+commit ee68c78d0afae2b69c03ae1a72bf5cc267a2d94c (HEAD -> my-2.1.1, origin/my-2.1.1, origin/master, origin/HEAD)
+Author: graham sanderson <graham.sanderson@raspberrypi.com>
+Date:   Tue Feb 18 20:08:06 2025 -0600
+
+    fix doc for SYS_CLK_VREG_VOLTAGE_AUTO_ADJUST_DELAY_US
+
+commit bddd20f928ce76142793bef434d4f75f4af6e433
+Author: graham sanderson <graham.sanderson@raspberrypi.com>
+Date:   Tue Feb 18 17:55:07 2025 -0600
+
+    SDK 2.1.1 Release
+
+devel@pi5-70:~/pico2/pico-sdk $ cd ~/pshell
+This script tests the difference of the files in devel@pi5-70:~/pshell/openjpeg/openjpeg-lib/ and
+devel@pi5-70:~/dwtlift-pi/encode_decode/src
+ 
+bio.c            invert.c     opj_codec.h           sparse_array.c
+bio.h            invert.h     opj_common.h          sparse_array.h
+cio.c            j2k.c        opj_config.h          t1.c
+cio.h            j2k.h        opj_config_private.h  t1.h
+dwt.c            jp2.c        opj_includes.h        t1_luts.h
+dwt.h            jp2.h        opj_intmath.h         t2.c
+dwtlift.c        mct.c        opj_inttypes.h        t2.h
+dwtlift.h        mct.h        opj_malloc.c          tcd.c
+event.c          mqc.c        opj_malloc.h          tcd.h
+event.h          mqc.h        opj_stdint.h          tgt.c
+format_defs.h    mqc_inl.h    pi.c                  tgt.h
+function_list.c  openjpeg.c   pi.h                  thread.c
+function_list.h  openjpeg.h   rdwr.h                thread.h
+image.c          opj_clock.c  rd-wr-ops.c           tls_keys.h
+image.h          opj_clock.h  rd-wr-ops.c.rev1
+
+Currently 1 file is different dwtlift.c
+
+devel@pi5-70:~/pshell $ ./compare.sh 
+914c914
+< 	printf("size %ld ",imgsz);
+---
+> 	printf("size %d ",imgsz);
+1010a1011,1013
+>     FILTER = 0;
+>     //FILTER 0 5/3 DWT
+>     //FILTER 1 9/7 DWT    
+1011a1015
+> 
+
+commit b07d1797f80b4ef4127ebff6b800c7f8a90e4c96 (HEAD -> ultibo, origin/ultibo)
+Author: Edward Vidal Jr <develone@sbcglobal.net>
+Date:   Sat Nov 8 11:45:01 2025 -0700
+
+    testing ubuntu@vps-a35f6ef3
+
 git clone --recursive https://github.com/develone/pshell.git -b test-dev
 Cloning into 'pshell'...
 remote: Enumerating objects: 3341, done.
