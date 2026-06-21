@@ -640,6 +640,7 @@ j2k_cmd (void)
     da_y1= s1.wim;
     printf("da_x0 %d da_y0 %d\n",da_x0,da_y0);
     printf("da_x1 %d da_y1 %d ff %s\n",da_x1,da_y1,ff);
+    //lift_config(&s1);
     //decom_test(da_x0,da_y0,da_x1,da_y1,ff);
     fs_file_close(&in);
 
