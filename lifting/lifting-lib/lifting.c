@@ -1,6 +1,6 @@
 void	singlelift(short int rb, short int w, short int * const ibuf, short int * const obuf) {
 	short int	col, row;
-	//printf("in singlelift \n");
+	printf("in singlelift \n");
 	for(row=0; row<w; row++) {
 		register short int	*ip, *op, *opb;
 		register short int	ap,b,cp,d;
@@ -23,7 +23,7 @@ void	singlelift(short int rb, short int w, short int * const ibuf, short int * c
 		//
 		op = obuf+row;
 		opb = op + w*rb/2;
-		//printf("ip = 0x%x op = 0x%x opb = 0x%x\n",ip,op,opb);
+		printf("ip = 0x%x op = 0x%x opb = 0x%x\n",ip,op,opb);
 		//
 		// Pre-charge our pipeline
 		//
@@ -34,7 +34,7 @@ void	singlelift(short int rb, short int w, short int * const ibuf, short int * c
 		b  = ip[1];
 		cp = ip[2];
 		d  = ip[3]; ip += 4;
-		//printf("ap = %d b = %d cp = %d d = %d\n",ap,b,cp,d);
+		printf("ap = %d b = %d cp = %d d = %d\n",ap,b,cp,d);
 		//
 		ap = ap-b; // img[0]-(img[1]+img[-1])>>1)
 		cp = cp- ((b+d)>>1);
@@ -132,10 +132,10 @@ void	lifting(short int w, short int *ibuf, short int *tmpbuf, short int *fwd) {
 	short int	lvl;
 
 	short int	*ip = ibuf, *tp = tmpbuf, *test_fwd = fwd;
-	//printf("ip = 0x%x tp = 0x%x \n",ip,tp);
+	printf("ip = 0x%x tp = 0x%x \n",ip,tp);
 	short int	ov[3];
 
-	const short int	LVLS = 4;
+	const short int	LVLS = 1;
 
 /*
 	for(lvl=0; lvl<w*w; lvl++)

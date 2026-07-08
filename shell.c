@@ -28,7 +28,7 @@
 #include "lifting.h"
 #include "klt.h"
 #include "encode_decode.h"
-
+#include "pnmio.h"
 #include "comprogs.h"
 #if !defined(NDEBUG) || defined(PSHELL_TESTS)
 #include "tests.h"
@@ -353,6 +353,108 @@ static void cp_cmd(void) {
     free(to);
 }
 
+
+
+static void
+testpgm_cmd (void)
+{
+     if (check_mount (true))
+        return;
+     printf("%s\n", argv[1]);
+     lfs_file_t in, out;
+     unsigned char *img1;
+	 int ncols = 64, nrows = 64;
+	 //img1 = pgmReadFile("lena_rgb_64.pgm", NULL, &ncols, &nrows);
+     printf ("%d\n", fs_file_open (&in, argv[1], LFS_O_RDONLY));
+     int l = fs_file_size (&in), charcnt = 0, charsent = 0;
+     
+     int ii = 0, jj = 0, flag;
+     char *buf = malloc (l + 1);
+	 char *outstr = malloc (75 + 1);
+     char *bufptr;
+     short int buffer[8192];
+     
+     fs_file_read (&in, buf, l);
+     /*
+    Read the pgm header
+    P5                                                                              
+    # Created by GIMP version 2.10.8 PNM plug-in                                    
+    48                                                                              
+    64 64                                                                           
+    255
+    */
+    for (ii = 0; ii < 3; ii++)
+        printf ("%c", buf[ii]);
+    printf("file_size %d \n", l);
+    //# Created by GIMP version 2.10.34 PNM plug-in
+    flag = 1;
+    while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+    ii++;
+    printf ("\n");
+    //64 64
+    flag = 1;
+    while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+    ii++;
+    printf ("\n");
+    //255
+    flag = 1;
+    while (flag)
+    {
+      if (buf[ii] != 10)
+	{
+	  printf ("%c", buf[ii]);
+	  ii++;
+	}
+      else
+	flag = 0;
+    }
+    printf ("\n");
+    ii++;
+    bufptr = &buf[ii];
+     
+    for (ii = 0; ii < ncols*nrows; ii++)
+    {
+        buffer[ii] = (unsigned short int) *bufptr;
+        
+        printf ("0x%hx ",buffer[ii]);
+        bufptr++;
+    }
+    printf ("\n");
+    printf("starting lifting step\n");
+    *ptrs.fwd_inv = 1;
+    ptrs.w = 64;
+    lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
+    printf("back from lifting step\n");
+    for(i=4096;i<8192;i++) 
+    {
+            printf(" %d 0x%hx \n",i-4096,buffer[i]);
+    }
+    printf("\n");
+    fs_file_close (&in);
+    printf ("%d \n", fs_file_open (&out, "dwt.bin", LFS_O_WRONLY | LFS_O_CREAT));
+    fs_file_write(&out, &buffer[4096], 4096);
+    fs_file_close (&out);
+    
+     
+}    
 static void
 lsklt_cmd (void)
 {
@@ -439,12 +541,13 @@ P5
   ptrs.inp_buf = ptrs.inpbuf;
   ii++;
   bufptr = &buf[ii];
+  short int buffer[8192];
   for (jj = 0; jj < 64; jj++)
     {
       for (ii = 0; ii < 64; ii++)
 	{
 	  //printf("%d ",*bufptr);
-	  *ptrs.inp_buf = (unsigned short int) *bufptr;
+	  buffer[ii] = (unsigned short int) *bufptr;
 	  printf ("%d ", *ptrs.inp_buf);
 	  bufptr++;
 	  ptrs.inp_buf++;
@@ -515,13 +618,18 @@ P5
 	{
 		printf("lifting step\n");
 		ptrs.inp_buf = ptrs.inpbuf;
-    printf("%d 0x%x 0x%x 0%x \n",ptrs.w, ptrs.inp_buf, ptrs.out_buf, *ptrs.fwd_inv);
-		lifting (ptrs.w, ptrs.inp_buf, ptrs.out_buf, ptrs.fwd_inv);
-		for(nrows=0;nrows<64;nrows++) {
-			for(ncols=0;ncols<64;ncols++) {
-				printf("%d ",ptrs.inp_buf[offset]);
-				offset++;
-			}
+    printf("%d 0x%x 0x%x 0x%x \n",ptrs.w, ptrs.inp_buf, ptrs.out_buf, *ptrs.fwd_inv);
+		/*
+		ptrs.alt = &ptrs.inpbuf[ptrs.w*ptrs.h];
+		wptr = &ptrs.inpbuf[0];
+		lifting(ptrs.w,wptr,ptrs.alt,fwd_inv);
+		*/		
+		lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
+		for(i=0;i<4096;i++) {
+			 
+            printf(" %d 0x%hx ",i,buffer[i]);
+				
+			
 			printf("\n");
 		}
 	}
@@ -530,7 +638,7 @@ P5
   //free(&fd);
   fs_file_close (&in);
   printf ("%d \n", fs_file_open (&out, argv[2], LFS_O_WRONLY | LFS_O_CREAT));
-  //lfsfile_write (&out, outstr, charsent);
+  fs_file_write(&out, &buffer[0], 4096);
   fs_file_close (&out);
   //lift_config(&s1);
 }
@@ -1249,6 +1357,7 @@ const cmd_t cmd_table[] = {
     {"xput",    xput_cmd,       "xmodem put a file (host->pico)"},
     {"yget",    yget_cmd,       "ymodem get a file (pico->host)"},
     {"yput",    yput_cmd,       "ymodem put a file (host->pico)"},
+    {"testpgm", testpgm_cmd, "lena_rgb_64.pgm"},
     {"lsklt", lsklt_cmd, "lifting step 0 klt 1"},
     {"j2k", j2k_cmd, "In File Out Frile Compression Ratio Compression 0 Decompression 1"},	
     {"#",       cmnt_cmd,       "comment line"},
