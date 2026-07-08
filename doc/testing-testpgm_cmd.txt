@@ -1,0 +1,332 @@
+07/08/26
+
+devel@pi4-50:~ $git clone -b test-dev --recursive https://github.com/develone/pshell.git
+
+devel@pi4-50:~/pshell/build-rp2350 $ make
+devel@pi4-50:~/pshell/build-rp2350 $ cp pshell.uf2 /media/devel/RP2350/
+
+/:
+
+    cat - display a text file, use -p to paginate
+     cc - compile & run C source file. cc -h for help
+     cd - change directory
+  clear - clear the screen
+     cp - copy a file
+ format - format the filesystem
+    hex - simple hexdump, use -p to paginate
+     ls - list a directory, -a to show hidden files
+  mkdir - create a directory
+  mount - mount the filesystem
+     mv - rename a file or directory
+   news - what's new in this release
+   quit - shutdown the system
+ reboot - restart the system
+     rm - remove a file or directory. -r for recursive
+ status - display the filesystem status
+    tar - manage tar archives
+ umount - unmount the filesystem
+version - display pico shell's version
+     vi - edit file(s) with vi
+   xget - xmodem get a file (pico->host)
+   xput - xmodem put a file (host->pico)
+   yget - ymodem get a file (pico->host)
+   yput - ymodem put a file (host->pico)
+testpgm - lena_rgb_64.pgm
+  lsklt - lifting step 0 klt 1
+    j2k - In File Out Frile Compression Ratio Compression 0 Decompression 1
+      # - comment line
+
+/: testpgm lena_rgb_64.pgm
+lena_rgb_64.pgm
+0
+P5
+file_size 4224
+# Created by GIMP version 2.10.34 PNM plug-in
+64 64
+255
+0xa0 0x9f 0x9c 0x9b 0xa0 0xaa 0xa7 0x86 0x62 0x69 0x6c 0x6d 0x6d 0x74 0x7c 0x81 0x84 0x85 0x84 0x85 0x87 0x87 0x87 0x86
+starting lifting step
+ip = 0x2007df98 tp = 0x2007ff98
+in singlelift
+ip = 0x2007df98 op = 0x2007ff98 opb = 0x20080f98
+ap = 160 b = 159 cp = 156 d = 155
+ip = 0x2007e018 op = 0x2007ff9a opb = 0x20080f9a
+ap = 157 b = 157 cp = 156 d = 155
+ip = 0x2007e098 op = 0x2007ff9c opb = 0x20080f9c
+ap = 156 b = 158 cp = 157 d = 158
+ip = 0x2007e118 op = 0x2007ff9e opb = 0x20080f9e
+ap = 157 b = 159 cp = 159 d = 164
+ip = 0x2007e198 op = 0x2007ffa0 opb = 0x20080fa0
+ap = 159 b = 161 cp = 165 d = 167
+ip = 0x2007e218 op = 0x2007ffa2 opb = 0x20080fa2
+ap = 162 b = 163 cp = 165 d = 159
+ip = 0x2007e298 op = 0x2007ffa4 opb = 0x20080fa4
+ap = 162 b = 166 cp = 157 d = 145
+ip = 0x2007e318 op = 0x2007ffa6 opb = 0x20080fa6
+ap = 166 b = 164 cp = 138 d = 133
+ip = 0x2007e398 op = 0x2007ffa8 opb = 0x20080fa8
+ap = 171 b = 153 cp = 108 d = 127
+ip = 0x2007e418 op = 0x2007ffaa opb = 0x20080faa
+ap = 164 b = 130 cp = 91 d = 128
+ip = 0x2007e498 op = 0x2007ffac opb = 0x20080fac
+ap = 147 b = 102 cp = 92 d = 128
+ip = 0x2007e518 op = 0x2007ffae opb = 0x20080fae
+ap = 117 b = 93 cp = 93 d = 127
+ip = 0x2007e598 op = 0x2007ffb0 opb = 0x20080fb0
+ap = 94 b = 95 cp = 94 d = 126
+ip = 0x2007e618 op = 0x2007ffb2 opb = 0x20080fb2
+ap = 94 b = 95 cp = 94 d = 126
+ip = 0x2007e698 op = 0x2007ffb4 opb = 0x20080fb4
+ap = 94 b = 94 cp = 92 d = 124
+ip = 0x2007e718 op = 0x2007ffb6 opb = 0x20080fb6
+ap = 94 b = 97 cp = 96 d = 123
+ip = 0x2007e798 op = 0x2007ffb8 opb = 0x20080fb8
+ap = 100 b = 102 cp = 101 d = 124
+ip = 0x2007e818 op = 0x2007ffba opb = 0x20080fba
+ap = 103 b = 103 cp = 104 d = 128
+ip = 0x2007e898 op = 0x2007ffbc opb = 0x20080fbc
+ap = 103 b = 102 cp = 104 d = 128
+ip = 0x2007e918 op = 0x2007ffbe opb = 0x20080fbe
+ap = 101 b = 101 cp = 102 d = 127
+ip = 0x2007e998 op = 0x2007ffc0 opb = 0x20080fc0
+ap = 100 b = 99 cp = 101 d = 129
+ip = 0x2007ea18 op = 0x2007ffc2 opb = 0x20080fc2
+ap = 101 b = 100 cp = 106 d = 131
+ip = 0x2007ea98 op = 0x2007ffc4 opb = 0x20080fc4
+ap = 103 b = 102 cp = 109 d = 134
+ip = 0x2007eb18 op = 0x2007ffc6 opb = 0x20080fc6
+ap = 107 b = 104 cp = 109 d = 134
+ip = 0x2007eb98 op = 0x2007ffc8 opb = 0x20080fc8
+ap = 109 b = 106 cp = 108 d = 132
+ip = 0x2007ec18 op = 0x2007ffca opb = 0x20080fca
+ap = 110 b = 106 cp = 105 d = 128
+ip = 0x2007ec98 op = 0x2007ffcc opb = 0x20080fcc
+ap = 110 b = 106 cp = 102 d = 123
+ip = 0x2007ed18 op = 0x2007ffce opb = 0x20080fce
+ap = 108 b = 105 cp = 101 d = 121
+ip = 0x2007ed98 op = 0x2007ffd0 opb = 0x20080fd0
+ap = 107 b = 105 cp = 100 d = 121
+ip = 0x2007ee18 op = 0x2007ffd2 opb = 0x20080fd2
+ap = 106 b = 103 cp = 99 d = 119
+ip = 0x2007ee98 op = 0x2007ffd4 opb = 0x20080fd4
+ap = 105 b = 103 cp = 100 d = 119
+ip = 0x2007ef18 op = 0x2007ffd6 opb = 0x20080fd6
+ap = 105 b = 105 cp = 100 d = 118
+ip = 0x2007ef98 op = 0x2007ffd8 opb = 0x20080fd8
+ap = 103 b = 101 cp = 95 d = 115
+ip = 0x2007f018 op = 0x2007ffda opb = 0x20080fda
+ap = 101 b = 98 cp = 89 d = 110
+ip = 0x2007f098 op = 0x2007ffdc opb = 0x20080fdc
+ap = 104 b = 100 cp = 88 d = 109
+ip = 0x2007f118 op = 0x2007ffde opb = 0x20080fde
+ap = 102 b = 93 cp = 82 d = 104
+ip = 0x2007f198 op = 0x2007ffe0 opb = 0x20080fe0
+ap = 93 b = 86 cp = 76 d = 100
+ip = 0x2007f218 op = 0x2007ffe2 opb = 0x20080fe2
+ap = 83 b = 79 cp = 71 d = 99
+ip = 0x2007f298 op = 0x2007ffe4 opb = 0x20080fe4
+ap = 80 b = 76 cp = 66 d = 96
+ip = 0x2007f318 op = 0x2007ffe6 opb = 0x20080fe6
+ap = 83 b = 77 cp = 64 d = 93
+ip = 0x2007f398 op = 0x2007ffe8 opb = 0x20080fe8
+ap = 84 b = 80 cp = 71 d = 103
+ip = 0x2007f418 op = 0x2007ffea opb = 0x20080fea
+ap = 82 b = 81 cp = 76 d = 118
+ip = 0x2007f498 op = 0x2007ffec opb = 0x20080fec
+ap = 76 b = 76 cp = 74 d = 118
+ip = 0x2007f518 op = 0x2007ffee opb = 0x20080fee
+ap = 66 b = 71 cp = 74 d = 118
+ip = 0x2007f598 op = 0x2007fff0 opb = 0x20080ff0
+ap = 60 b = 66 cp = 76 d = 120
+ip = 0x2007f618 op = 0x2007fff2 opb = 0x20080ff2
+ap = 57 b = 60 cp = 78 d = 117
+ip = 0x2007f698 op = 0x2007fff4 opb = 0x20080ff4
+ap = 53 b = 55 cp = 89 d = 119
+ip = 0x2007f718 op = 0x2007fff6 opb = 0x20080ff6
+ap = 51 b = 51 cp = 85 d = 121
+ip = 0x2007f798 op = 0x2007fff8 opb = 0x20080ff8
+ap = 53 b = 48 cp = 72 d = 113
+ip = 0x2007f818 op = 0x2007fffa opb = 0x20080ffa
+ap = 85 b = 62 cp = 64 d = 94
+ip = 0x2007f898 op = 0x2007fffc opb = 0x20080ffc
+ap = 130 b = 109 cp = 79 d = 77
+ip = 0x2007f918 op = 0x2007fffe opb = 0x20080ffe
+ap = 127 b = 143 cp = 112 d = 77
+ip = 0x2007f998 op = 0x20080000 opb = 0x20081000
+ap = 86 b = 150 cp = 141 d = 78
+ip = 0x2007fa18 op = 0x20080002 opb = 0x20081002
+ap = 58 b = 147 cp = 151 d = 75
+ip = 0x2007fa98 op = 0x20080004 opb = 0x20081004
+ap = 49 b = 139 cp = 153 d = 75
+ip = 0x2007fb18 op = 0x20080006 opb = 0x20081006
+ap = 45 b = 133 cp = 157 d = 81
+ip = 0x2007fb98 op = 0x20080008 opb = 0x20081008
+ap = 44 b = 123 cp = 158 d = 87
+ip = 0x2007fc18 op = 0x2008000a opb = 0x2008100a
+ap = 42 b = 113 cp = 158 d = 96
+ip = 0x2007fc98 op = 0x2008000c opb = 0x2008100c
+ap = 42 b = 109 cp = 167 d = 107
+ip = 0x2007fd18 op = 0x2008000e opb = 0x2008100e
+ap = 76 b = 113 cp = 172 d = 122
+ip = 0x2007fd98 op = 0x20080010 opb = 0x20081010
+ap = 91 b = 124 cp = 172 d = 132
+ip = 0x2007fe18 op = 0x20080012 opb = 0x20081012
+ap = 73 b = 108 cp = 166 d = 136
+ip = 0x2007fe98 op = 0x20080014 opb = 0x20081014
+ap = 58 b = 89 cp = 177 d = 161
+ip = 0x2007ff18 op = 0x20080016 opb = 0x20081016
+ap = 53 b = 83 cp = 187 d = 179
+in singlelift
+ip = 0x2007ff98 op = 0x2007df98 opb = 0x2007ef98
+ap = 1 b = 0 cp = -2 d = -2
+ip = 0x20080018 op = 0x2007df9a opb = 0x2007ef9a
+ap = -1 b = 0 cp = -1 d = -2
+ip = 0x20080098 op = 0x2007df9c opb = 0x2007ef9c
+ap = -2 b = 0 cp = 5 d = 4
+ip = 0x20080118 op = 0x2007df9e opb = 0x2007ef9e
+ap = 15 b = 13 cp = 11 d = 14
+ip = 0x20080198 op = 0x2007dfa0 opb = 0x2007efa0
+ap = -21 b = -20 cp = -20 d = -21
+ip = 0x20080218 op = 0x2007dfa2 opb = 0x2007efa2
+ap = 1 b = 2 cp = 4 d = 3
+ip = 0x20080298 op = 0x2007dfa4 opb = 0x2007efa4
+ap = -3 b = -4 cp = -3 d = -3
+ip = 0x20080318 op = 0x2007dfa6 opb = 0x2007efa6
+ap = 2 b = 1 cp = 1 d = 2
+ip = 0x20080398 op = 0x2007dfa8 opb = 0x2007efa8
+ap = 1 b = 0 cp = 0 d = 1
+ip = 0x20080418 op = 0x2007dfaa opb = 0x2007efaa
+ap = -1 b = 1 cp = 1 d = 1
+ip = 0x20080498 op = 0x2007dfac opb = 0x2007efac
+ap = 1 b = 0 cp = 0 d = 0
+ip = 0x20080518 op = 0x2007dfae opb = 0x2007efae
+ap = 1 b = -1 cp = 1 d = -1
+ip = 0x20080598 op = 0x2007dfb0 opb = 0x2007efb0
+ap = 1 b = 0 cp = 1 d = 3
+ip = 0x20080618 op = 0x2007dfb2 opb = 0x2007efb2
+ap = 0 b = 1 cp = 0 d = -1
+ip = 0x20080698 op = 0x2007dfb4 opb = 0x2007efb4
+ap = 1 b = 1 cp = 1 d = 1
+ip = 0x20080718 op = 0x2007dfb6 opb = 0x2007efb6
+ap = 2 b = 2 cp = 3 d = 1
+ip = 0x20080798 op = 0x2007dfb8 opb = 0x2007efb8
+ap = 2 b = 1 cp = 1 d = 2
+ip = 0x20080818 op = 0x2007dfba opb = 0x2007efba
+ap = 0 b = 0 cp = 0 d = 0
+ip = 0x20080898 op = 0x2007dfbc opb = 0x2007efbc
+ap = 1 b = 1 cp = 1 d = 0
+ip = 0x20080918 op = 0x2007dfbe opb = 0x2007efbe
+ap = 2 b = 2 cp = 1 d = 1
+ip = 0x20080998 op = 0x2007dfc0 opb = 0x2007efc0
+ap = -6 b = -15 cp = -14 d = -10
+ip = 0x20080a18 op = 0x2007dfc2 opb = 0x2007efc2
+ap = 8 b = 9 cp = 9 d = 8
+ip = 0x20080a98 op = 0x2007dfc4 opb = 0x2007efc4
+ap = 0 b = 0 cp = 0 d = 1
+ip = 0x20080b18 op = 0x2007dfc6 opb = 0x2007efc6
+ap = -1 b = -1 cp = 0 d = 1
+ip = 0x20080b98 op = 0x2007dfc8 opb = 0x2007efc8
+ap = 1 b = 0 cp = 0 d = 0
+ip = 0x20080c18 op = 0x2007dfca opb = 0x2007efca
+ap = -5 b = -19 cp = -13 d = -1
+ip = 0x20080c98 op = 0x2007dfcc opb = 0x2007efcc
+ap = 29 b = 38 cp = 28 d = 14
+ip = 0x20080d18 op = 0x2007dfce opb = 0x2007efce
+ap = 1 b = -20 cp = -37 d = 2
+ip = 0x20080d98 op = 0x2007dfd0 opb = 0x2007efd0
+ap = 0 b = 1 cp = 2 d = 3
+ip = 0x20080e18 op = 0x2007dfd2 opb = 0x2007efd2
+ap = 1 b = 1 cp = -2 d = -2
+ip = 0x20080e98 op = 0x2007dfd4 opb = 0x2007efd4
+ap = 1 b = 1 cp = 18 d = 10
+ip = 0x20080f18 op = 0x2007dfd6 opb = 0x2007efd6
+ap = -9 b = 10 cp = -21 d = -5
+ip = 0x20080f98 op = 0x2007dfd8 opb = 0x2007efd8
+ap = 159 b = 157 cp = 157 d = 158
+ip = 0x20081018 op = 0x2007dfda opb = 0x2007efda
+ap = 154 b = 155 cp = 159 d = 165
+ip = 0x20081098 op = 0x2007dfdc opb = 0x2007efdc
+ap = 173 b = 172 cp = 169 d = 165
+ip = 0x20081118 op = 0x2007dfde opb = 0x2007efde
+ap = 133 b = 129 cp = 129 d = 129
+ip = 0x20081198 op = 0x2007dfe0 opb = 0x2007efe0
+ap = 100 b = 100 cp = 100 d = 99
+ip = 0x20081218 op = 0x2007dfe2 opb = 0x2007efe2
+ap = 109 b = 108 cp = 107 d = 107
+ip = 0x20081298 op = 0x2007dfe4 opb = 0x2007efe4
+ap = 116 b = 115 cp = 116 d = 115
+ip = 0x20081318 op = 0x2007dfe6 opb = 0x2007efe6
+ap = 130 b = 128 cp = 128 d = 128
+ip = 0x20081398 op = 0x2007dfe8 opb = 0x2007efe8
+ap = 133 b = 132 cp = 132 d = 131
+ip = 0x20081418 op = 0x2007dfea opb = 0x2007efea
+ap = 133 b = 133 cp = 133 d = 131
+ip = 0x20081498 op = 0x2007dfec opb = 0x2007efec
+ap = 136 b = 135 cp = 134 d = 133
+ip = 0x20081518 op = 0x2007dfee opb = 0x2007efee
+ap = 135 b = 135 cp = 134 d = 134
+ip = 0x20081598 op = 0x2007dff0 opb = 0x2007eff0
+ap = 135 b = 133 cp = 133 d = 131
+ip = 0x20081618 op = 0x2007dff2 opb = 0x2007eff2
+ap = 132 b = 132 cp = 132 d = 129
+ip = 0x20081698 op = 0x2007dff4 opb = 0x2007eff4
+ap = 134 b = 133 cp = 132 d = 129
+ip = 0x20081718 op = 0x2007dff6 opb = 0x2007eff6
+ap = 134 b = 133 cp = 135 d = 133
+ip = 0x20081798 op = 0x2007dff8 opb = 0x2007eff8
+ap = 133 b = 131 cp = 131 d = 131
+ip = 0x20081818 op = 0x2007dffa opb = 0x2007effa
+ap = 130 b = 129 cp = 129 d = 129
+ip = 0x20081898 op = 0x2007dffc opb = 0x2007effc
+ap = 130 b = 130 cp = 131 d = 129
+ip = 0x20081918 op = 0x2007dffe opb = 0x2007effe
+ap = 111 b = 112 cp = 115 d = 117
+ip = 0x20081998 op = 0x2007e000 opb = 0x2007f000
+ap = 149 b = 139 cp = 127 d = 125
+ip = 0x20081a18 op = 0x2007e002 opb = 0x2007f002
+ap = 155 b = 159 cp = 163 d = 162
+ip = 0x20081a98 op = 0x2007e004 opb = 0x2007f004
+ap = 155 b = 159 cp = 162 d = 160
+ip = 0x20081b18 op = 0x2007e006 opb = 0x2007f006
+ap = 155 b = 155 cp = 156 d = 157
+ip = 0x20081b98 op = 0x2007e008 opb = 0x2007f008
+ap = 155 b = 148 cp = 149 d = 154
+ip = 0x20081c18 op = 0x2007e00a opb = 0x2007f00a
+ap = 220 b = 208 cp = 180 d = 155
+ip = 0x20081c98 op = 0x2007e00c opb = 0x2007f00c
+ap = 122 b = 154 cp = 196 d = 222
+ip = 0x20081d18 op = 0x2007e00e opb = 0x2007f00e
+ap = 122 b = 115 cp = 108 d = 116
+ip = 0x20081d98 op = 0x2007e010 opb = 0x2007f010
+ap = 123 b = 123 cp = 123 d = 123
+ip = 0x20081e18 op = 0x2007e012 opb = 0x2007f012
+ap = 126 b = 126 cp = 133 d = 132
+ip = 0x20081e98 op = 0x2007e014 opb = 0x2007f014
+ap = 124 b = 132 cp = 101 d = 56
+ip = 0x20081f18 op = 0x2007e016 opb = 0x2007f016
+ap = 138 b = 61 cp = 48 d = 54
+back from lifting step
+ 0 0x1
+ 1 0x0
+ 2 0xfffe
+ 3 0xfffe
+ 4 0xfffe
+ 5 0xffff
+ 6 0xfffc
+ 7 0x2
+ 8 0x12
+ 9 0x22
+ 10 0x2d
+		.
+		.
+		.
+ 4090 0x44
+ 4091 0x3f
+ 4092 0x42
+ 4093 0x3d
+ 4094 0x3c
+ 4095 0x58
+
+0
+
+/:
