@@ -445,7 +445,7 @@ testpgm_cmd (void)
     printf("back from lifting step\n");
     for(i=4096;i<8192;i++) 
     {
-            printf(" %d 0x%hx \n",i-4096,buffer[i]);
+            printf(" %d 0x%4hx \n",i-4096,buffer[i]);
     }
     printf("\n");
     fs_file_close (&in);
