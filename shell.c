@@ -450,8 +450,9 @@ testpgm_cmd (void)
     printf("\n");
     fs_file_close (&in);
     printf ("%d \n", fs_file_open (&out, "dwt.bin", LFS_O_WRONLY | LFS_O_CREAT));
-    fs_file_write(&out, &buffer[4096], 4096);
+    fs_file_write(&out, &buffer[4096], 8192);
     fs_file_close (&out);
+    printf("%d \n",sizeof(buffer));
     
      
 }    
