@@ -362,6 +362,9 @@ dwt_cmd (void)
         return;
      short int *fwd_inv;
      fwd_inv = ( short int *)malloc(1);
+     short int *dec_lvl;
+     dec_lvl = ( short int *)malloc(1);
+
      printf("%s\n", argv[1]);
      lfs_file_t in, out;
      unsigned char *img1;
@@ -442,9 +445,11 @@ dwt_cmd (void)
     printf ("\n");
     printf("starting lifting step\n");
     *fwd_inv = 1;
+    *dec_lvl = (short int)atoi(argv[2]);
     printf("*fwd_inv %d fwd_inv 0x%hx \n",*fwd_inv,fwd_inv);
+    printf("*dec_lvl %d dec_lvl 0x%hx \n",*dec_lvl,dec_lvl);
     ptrs.w = 64;
-    lifting (ptrs.w, &buffer[0], &buffer[4096], fwd_inv);
+    lifting (ptrs.w, &buffer[0], &buffer[4096], fwd_inv, dec_lvl);
     printf("back from lifting step\n");
     for(i=0;i<8192;i++) 
     {
@@ -628,7 +633,7 @@ P5
 		wptr = &ptrs.inpbuf[0];
 		lifting(ptrs.w,wptr,ptrs.alt,fwd_inv);
 		*/		
-		lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
+		//lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
 		for(i=0;i<4096;i++) {
 			 
             printf(" %d 0x%hx ",i,buffer[i]);

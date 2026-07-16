@@ -128,15 +128,15 @@ void	ilift(short int rb, short int w,  short int * const ibuf,  short int * cons
 	}
 }
 
-void	lifting(short int w, short int *ibuf, short int *tmpbuf, short int *fwd) {
+void	lifting(short int w, short int *ibuf, short int *tmpbuf, short int *fwd, short int *dec) {
 	const	short int	rb = w;
 	short int	lvl;
 
-	short int	*ip = ibuf, *tp = tmpbuf, *test_fwd = fwd;
+	short int	*ip = ibuf, *tp = tmpbuf, *test_fwd = fwd, *test_dec = dec;
 	printf("ip = 0x%x tp = 0x%x \n",ip,tp);
 	short int	ov[3];
 
-	const short int	LVLS = 1;
+	short int	LVLS = test_dec[0];
 
 /*
 	for(lvl=0; lvl<w*w; lvl++)

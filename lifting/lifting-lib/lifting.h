@@ -43,7 +43,7 @@
 
 extern	void	singlelift(short int rb, short int w, short int * const ibuf, short int * const obuf);
 extern	void	ilift(short int rb, short int w,  short int * const ibuf,  short int * const obuf);
-extern	void	lifting(short int w, short int *ibuf, short int *tmpbuf, short int *fwd);
+extern	void	lifting(short int w, short int *ibuf, short int *tmpbuf, short int *fwd, short int *dec);
 
 #endif
 
