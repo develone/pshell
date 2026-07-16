@@ -28,7 +28,7 @@
 #include "lifting.h"
 #include "klt.h"
 #include "encode_decode.h"
-#include "pnmio.h"
+//#include "pnmio.h"
 #include "comprogs.h"
 #if !defined(NDEBUG) || defined(PSHELL_TESTS)
 #include "tests.h"
@@ -356,10 +356,12 @@ static void cp_cmd(void) {
 
 
 static void
-testpgm_cmd (void)
+dwt_cmd (void)
 {
      if (check_mount (true))
         return;
+     short int *fwd_inv;
+     fwd_inv = ( short int *)malloc(1);
      printf("%s\n", argv[1]);
      lfs_file_t in, out;
      unsigned char *img1;
@@ -439,18 +441,19 @@ testpgm_cmd (void)
     }
     printf ("\n");
     printf("starting lifting step\n");
-    *ptrs.fwd_inv = 1;
+    *fwd_inv = 1;
+    printf("*fwd_inv %d fwd_inv 0x%hx \n",*fwd_inv,fwd_inv);
     ptrs.w = 64;
-    lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
+    lifting (ptrs.w, &buffer[0], &buffer[4096], fwd_inv);
     printf("back from lifting step\n");
-    for(i=4096;i<8192;i++) 
+    for(i=0;i<8192;i++) 
     {
-            printf(" %d 0x%4hx \n",i-4096,buffer[i]);
+            printf(" %d 0x%4hx \n",i,buffer[i]);
     }
     printf("\n");
     fs_file_close (&in);
     printf ("%d \n", fs_file_open (&out, "dwt.bin", LFS_O_WRONLY | LFS_O_CREAT));
-    fs_file_write(&out, &buffer[4096], 8192);
+    fs_file_write(&out, &buffer[0], 8192);
     fs_file_close (&out);
     printf("%d \n",sizeof(buffer));
     
@@ -1358,7 +1361,7 @@ const cmd_t cmd_table[] = {
     {"xput",    xput_cmd,       "xmodem put a file (host->pico)"},
     {"yget",    yget_cmd,       "ymodem get a file (pico->host)"},
     {"yput",    yput_cmd,       "ymodem put a file (host->pico)"},
-    {"testpgm", testpgm_cmd, "lena_rgb_64.pgm"},
+    {"dwt", dwt_cmd, "dwt lena_rgb_64.pgm"},
     {"lsklt", lsklt_cmd, "lifting step 0 klt 1"},
     {"j2k", j2k_cmd, "In File Out Frile Compression Ratio Compression 0 Decompression 1"},	
     {"#",       cmnt_cmd,       "comment line"},

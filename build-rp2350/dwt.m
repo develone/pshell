@@ -3,4 +3,4 @@ figure;
 imagesc(im4);
 colorbar;
 colormap 'gray';
-title 'pi_jpeg lena_rgb_64.pgm 1 lvl  07/03/26';
+title 'dwt lena_rgb_64.pgm 1 lvl  07/15/26';
