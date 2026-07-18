@@ -465,7 +465,7 @@ dwt_cmd (void)
      
 }    
 static void
-lsklt_cmd (void)
+klt_cmd (void)
 {
   if (check_mount (true))
     return;
@@ -550,13 +550,12 @@ P5
   ptrs.inp_buf = ptrs.inpbuf;
   ii++;
   bufptr = &buf[ii];
-  short int buffer[8192];
   for (jj = 0; jj < 64; jj++)
     {
       for (ii = 0; ii < 64; ii++)
 	{
 	  //printf("%d ",*bufptr);
-	  buffer[ii] = (unsigned short int) *bufptr;
+	  *ptrs.inp_buf = (unsigned short int) *bufptr;
 	  printf ("%d ", *ptrs.inp_buf);
 	  bufptr++;
 	  ptrs.inp_buf++;
@@ -627,18 +626,13 @@ P5
 	{
 		printf("lifting step\n");
 		ptrs.inp_buf = ptrs.inpbuf;
-    printf("%d 0x%x 0x%x 0x%x \n",ptrs.w, ptrs.inp_buf, ptrs.out_buf, *ptrs.fwd_inv);
-		/*
-		ptrs.alt = &ptrs.inpbuf[ptrs.w*ptrs.h];
-		wptr = &ptrs.inpbuf[0];
-		lifting(ptrs.w,wptr,ptrs.alt,fwd_inv);
-		*/		
-		//lifting (ptrs.w, &buffer[0], &buffer[4096], ptrs.fwd_inv);
-		for(i=0;i<4096;i++) {
-			 
-            printf(" %d 0x%hx ",i,buffer[i]);
-				
-			
+    printf("%d 0x%x 0x%x 0%x \n",ptrs.w, ptrs.inp_buf, ptrs.out_buf, *ptrs.fwd_inv);
+		//lifting (ptrs.w, ptrs.inp_buf, ptrs.out_buf, ptrs.fwd_inv);
+		for(nrows=0;nrows<64;nrows++) {
+			for(ncols=0;ncols<64;ncols++) {
+				printf("%d ",ptrs.inp_buf[offset]);
+				offset++;
+			}
 			printf("\n");
 		}
 	}
@@ -647,7 +641,7 @@ P5
   //free(&fd);
   fs_file_close (&in);
   printf ("%d \n", fs_file_open (&out, argv[2], LFS_O_WRONLY | LFS_O_CREAT));
-  fs_file_write(&out, &buffer[0], 4096);
+  //lfsfile_write (&out, outstr, charsent);
   fs_file_close (&out);
   //lift_config(&s1);
 }
@@ -1367,7 +1361,7 @@ const cmd_t cmd_table[] = {
     {"yget",    yget_cmd,       "ymodem get a file (pico->host)"},
     {"yput",    yput_cmd,       "ymodem put a file (host->pico)"},
     {"dwt", dwt_cmd, "dwt lena_rgb_64.pgm"},
-    {"lsklt", lsklt_cmd, "lifting step 0 klt 1"},
+    {"klt", klt_cmd, "in out 1"},
     {"j2k", j2k_cmd, "In File Out Frile Compression Ratio Compression 0 Decompression 1"},	
     {"#",       cmnt_cmd,       "comment line"},
 	{0}
