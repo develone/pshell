@@ -1445,7 +1445,7 @@ these examples and explanations and extend them to suit your needs.
 #define RH_PLATFORM_ATTINY_MEGA      18
 #define RH_PLATFORM_STM32L0          19
 #define RH_PLATFORM_RASPI_PICO       20
-						   
+#define RH_PLATFORM_RASPI_PICO2      21						   
 ////////////////////////////////////////////////////
 // Select platform automatically, if possible
 #ifndef RH_PLATFORM
@@ -1487,6 +1487,10 @@ these examples and explanations and extend them to suit your needs.
   #define RH_PLATFORM RH_PLATFORM_UNIX
  #elif defined(__APPLE__) // OSX
   #define RH_PLATFORM RH_PLATFORM_UNIX
+ #elif defined(RH_PLATFORM_RASPI_PICO)
+  #define RH_PLATFORM RH_PLATFORM_RP2040
+ #elif defined(RH_PLATFORM_RASPI_PICO2)
+  #define RH_PLATFORM RH_PLATFORM_RP2350
 						   
  #else
   #error Platform not defined! 	

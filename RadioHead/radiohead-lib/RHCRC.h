@@ -8,7 +8,7 @@
 
 #ifndef RHCRC_h
 #define RHCRC_h
-
+#include "cstdint.h"
 #include <RadioHead.h>
 
 extern uint16_t RHcrc16_update(uint16_t crc, uint8_t a);
