@@ -1,3 +1,5 @@
+#include <stdint.h>
+#include <cstdint.h>
 // RadioHead.h
 // Author: Mike McCauley DO NOT CONTACT THE AUTHOR DIRECTLY
 // Copyright (C) 2014 Mike McCauley
