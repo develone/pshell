@@ -93,7 +93,7 @@
 /// \par Theory of operation
 ///
 /// See ASH Transceiver Software Designer's Guide of 2002.08.07
-///   http://wireless.murata.com/media/products/apnotes/tr_swg05.pdf?ref=rfm.com
+///   http://wireless.murata.com/media/products/apnotes/tr_swg05.pdf
 ///
 /// http://web.engr.oregonstate.edu/~moon/research/files/cas2_mar_07_dpll.pdf while not directly relevant 
 /// is also interesting.
@@ -106,7 +106,7 @@
 /// - 36 bit training preamble consisting of 0-1 bit pairs
 /// - 12 bit start symbol 0xb38
 /// - 1 byte of message length byte count (4 to 30), count includes byte count and FCS bytes
-/// - n message bytes (uincluding 4 bytes of header), maximum n is RH_ASK_MAX_MESSAGE_LEN + 4 (64)
+/// - n message bytes (including 4 bytes of header), maximum n is RH_ASK_MAX_MESSAGE_LEN + 4 (64)
 /// - 2 bytes FCS, sent low byte-hi byte
 ///
 /// Everything after the start symbol is encoded 4 to 6 bits, Therefore a byte in the message
@@ -154,6 +154,9 @@
 ///  - SYN115, F115 and other similar ASK transmitters
 /// - Transceivers
 ///  - DR3100 (433.92MHz)
+///
+/// \par Interoperation with other systems
+/// RH_ASK is reported to be supported by RTL-SDR https://www.rtl-sdr.com/tag/rtl_433/
 ///
 /// \par Connecting to Arduino
 ///
@@ -297,7 +300,7 @@ public:
     /// You should be sure to call this function frequently enough to not miss any messages
     /// It is recommended that you call it in your main loop.
     /// \param[in] buf Location to copy the received message
-    /// \param[in,out] len Pointer to the number of octets available in buf. The number be reset to the actual number of octets copied.
+    /// \param[in,out] len Pointer to the number of octets available in buf. The number will be reset to the actual number of octets copied.
     /// \return true if a valid message was copied to buf
     RH_INTERRUPT_ATTR virtual bool    recv(uint8_t* buf, uint8_t* len);
 
@@ -327,7 +330,7 @@ public:
     void           setModeTx();
 
     /// dont call this it used by the interrupt handler
-    RH_INTERRUPT_ATTR void            handleTimerInterrupt();
+    void RH_INTERRUPT_ATTR            handleTimerInterrupt();
 
     /// Returns the current speed in bits per second
     /// \return The current speed in bits per second
@@ -442,8 +445,8 @@ protected:
 
 };
 
-/// @example ask_reliable_datagram_client.pde
-/// @example ask_reliable_datagram_server.pde
-/// @example ask_transmitter.pde
-/// @example ask_receiver.pde
+/// @example ask_reliable_datagram_client.ino
+/// @example ask_reliable_datagram_server.ino
+/// @example ask_transmitter.ino
+/// @example ask_receiver.ino
 #endif

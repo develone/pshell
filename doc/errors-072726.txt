@@ -1,0 +1,159 @@
+[ 95%] Building CXX object CMakeFiles/pshell.dir/RadioHead/radiohead-lib/RH_LoRaFileOps.cpp.o
+In file included from /home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:9,
+                 from /home/devel/pshell/RadioHead/radiohead-lib/RH_LoRaFileOps.h:26,
+                 from /home/devel/pshell/RadioHead/radiohead-lib/RH_LoRaFileOps.cpp:5:
+/home/devel/pshell/RadioHead/radiohead-lib/RadioHead.h:1628:4: error: #error Platform not defined!
+ 1628 |   #error Platform not defined!
+      |    ^~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RadioHead.h:1854:3: error: #error Platform unknown!
+ 1854 |  #error Platform unknown!
+      |   ^~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RH_LoRaFileOps.h:27:2: warning: #warning RH_LoRaFileOps unfinished [-Wcpp]
+   27 | #warning RH_LoRaFileOps unfinished
+      |  ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:87:23: error: 'uint8_t' has not been declared
+   87 |     virtual bool recv(uint8_t* buf, uint8_t* len) = 0;
+      |                       ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:87:37: error: 'uint8_t' has not been declared
+   87 |     virtual bool recv(uint8_t* buf, uint8_t* len) = 0;
+      |                                     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:100:29: error: 'uint8_t' does not name a type
+  100 |     virtual bool send(const uint8_t* data, uint8_t len) = 0;
+      |                             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:10:1: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+    9 | #include <RadioHead.h>
+  +++ |+#include <cstdint>
+   10 | 
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:100:44: error: 'uint8_t' has not been declared
+  100 |     virtual bool send(const uint8_t* data, uint8_t len) = 0;
+      |                                            ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:105:13: error: 'uint8_t' does not name a type
+  105 |     virtual uint8_t maxMessageLength() = 0;
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:105:13: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:113:43: error: 'uint16_t' has not been declared
+  113 |     virtual void            waitAvailable(uint16_t polldelay = 0);
+      |                                           ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:123:44: error: 'uint16_t' has not been declared
+  123 |     virtual bool            waitPacketSent(uint16_t timeout);
+      |                                            ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:132:48: error: 'uint16_t' has not been declared
+  132 |   virtual bool            waitAvailableTimeout(uint16_t timeout, uint16_t polldelay = 0);
+      |                                                ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:132:66: error: 'uint16_t' has not been declared
+  132 | al bool            waitAvailableTimeout(uint16_t timeout, uint16_t polldelay = 0);
+      |                                                           ^~~~~~~~
+
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:172:33: error: 'uint8_t' has not been declared
+  172 |     virtual void setThisAddress(uint8_t thisAddress);
+      |                                 ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:176:40: error: 'uint8_t' has not been declared
+  176 |     virtual void           setHeaderTo(uint8_t to);
+      |                                        ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:180:42: error: 'uint8_t' has not been declared
+  180 |     virtual void           setHeaderFrom(uint8_t from);
+      |                                          ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:184:40: error: 'uint8_t' has not been declared
+  184 |     virtual void           setHeaderId(uint8_t id);
+      |                                        ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:193:43: error: 'uint8_t' has not been declared
+  193 |     virtual void           setHeaderFlags(uint8_t set, uint8_t clear = RH_FLAGS_APPLICATION_SPECIFIC);
+      |                                           ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:193:56: error: 'uint8_t' has not been declared
+  193 |     virtual void           setHeaderFlags(uint8_t set, uint8_t clear = RH_FLAGS_APPLICATION_SPECIFIC);
+      |                                                        ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:202:13: error: 'uint8_t' does not name a type
+  202 |     virtual uint8_t        headerTo();
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:202:13: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:206:13: error: 'uint8_t' does not name a type
+  206 |     virtual uint8_t        headerFrom();
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:206:13: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:210:13: error: 'uint8_t' does not name a type
+  210 |     virtual uint8_t        headerId();
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:210:13: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:214:13: error: 'uint8_t' does not name a type
+  214 |     virtual uint8_t        headerFlags();
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:214:13: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:220:13: error: 'int16_t' does not name a type
+  220 |     virtual int16_t        lastRssi();
+      |             ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:220:13: note: 'int16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:242:58: error: 'uint8_t' does not name a type
+  242 |     static void    printBuffer(const char* prompt, const uint8_t* buf, uint8_t len);
+      |                                                          ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:242:58: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:242:72: error: 'uint8_t' has not been declared
+  242 | id    printBuffer(const char* prompt, const uint8_t* buf, uint8_t len);
+      |                                                           ^~~~~~~
+
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:249:13: error: 'uint16_t' does not name a type
+  249 |     virtual uint16_t       rxBad();
+      |             ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:249:13: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:254:13: error: 'uint16_t' does not name a type
+  254 |     virtual uint16_t       rxGood();
+      |             ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:254:13: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:259:13: error: 'uint16_t' does not name a type
+  259 |     virtual uint16_t       txGood();
+      |             ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:259:13: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:267:5: error: 'uint8_t' does not name a type
+  267 |     uint8_t             _thisAddress;
+      |     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:267:5: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:273:14: error: 'uint8_t' does not name a type
+  273 |     volatile uint8_t    _rxHeaderTo;
+      |              ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:273:14: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:276:14: error: 'uint8_t' does not name a type
+  276 |     volatile uint8_t    _rxHeaderFrom;
+      |              ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:276:14: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:279:14: error: 'uint8_t' does not name a type
+  279 |     volatile uint8_t    _rxHeaderId;
+      |              ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:279:14: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:282:14: error: 'uint8_t' does not name a type
+  282 |     volatile uint8_t    _rxHeaderFlags;
+      |              ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:282:14: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:285:5: error: 'uint8_t' does not name a type
+  285 |     uint8_t             _txHeaderTo;
+      |     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:285:5: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:288:5: error: 'uint8_t' does not name a type
+  288 |     uint8_t             _txHeaderFrom;
+      |     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:288:5: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:291:5: error: 'uint8_t' does not name a type
+  291 |     uint8_t             _txHeaderId;
+      |     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:291:5: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:294:5: error: 'uint8_t' does not name a type
+  294 |     uint8_t             _txHeaderFlags;
+      |     ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:294:5: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:297:14: error: 'int16_t' does not name a type
+  297 |     volatile int16_t     _lastRssi;
+      |              ^~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:297:14: note: 'int16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:300:14: error: 'uint16_t' does not name a type
+  300 |     volatile uint16_t   _rxBad;
+      |              ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:300:14: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:303:14: error: 'uint16_t' does not name a type
+  303 |     volatile uint16_t   _rxGood;
+      |              ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:303:14: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:306:14: error: 'uint16_t' does not name a type
+  306 |     volatile uint16_t   _txGood;
+      |              ^~~~~~~~
+/home/devel/pshell/RadioHead/radiohead-lib/RHGenericDriver.h:306:14: note: 'uint16_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+make[2]: *** [CMakeFiles/pshell.dir/build.make:1549: CMakeFiles/pshell.dir/RadioHead/radiohead-lib/RH_LoRaFileOps.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:2142: CMakeFiles/pshell.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
