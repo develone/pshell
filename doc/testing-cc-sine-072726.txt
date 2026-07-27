@@ -1,0 +1,157 @@
+devel@pi5-70:~/master-repos/pshell $ cat c-examples/sine.c 
+/* Math function test. Display a sine wave */
+
+int main() {
+    int angle, incr;
+    for (incr = 16, angle = 0; angle <= 360; angle += incr) {
+        float rad = (float)angle * 0.01745329252;
+        printf("%.*s%c\n", 30 + (int)(sinf(rad) * 25.0),
+               "                                                                            ", '*');
+    }
+    return 0;
+}
+/: cat sine.c
+/* Math function test. Display a sine wave */
+#include <stdio.h>
+int main() {
+    int angle, incr;
+    for (incr = 16, angle = 0; angle <= 360; angle += incr) {
+        float rad = (float)angle * 0.01745329252;
+        printf("%.*s%c\n", 30 + (int)(sinf(rad) * 25.0),
+               "                                                               ;
+    }
+    return 0;
+}
+/: cc -o sine sine.c 
+
+text size   0x00d4
+data size   0x0058
+entry point 0x0000
+reloc count      2
+/: sine
+
+                              *
+                                    *
+                                           *
+                                                *
+                                                    *
+                                                      *
+                                                      *
+                                                     *
+                                                 *
+                                            *
+                                      *
+                               *
+                         *
+                   *
+             *
+         *
+      *
+      *
+       *
+          *
+              *
+                    *
+                           *
+
+CC = 0
+/: cc -s sine.c
+1: /* Math function test. Display a sine wave */
+2: #include <stdio.h>
+3: int main() {
+4:     int angle, incr;
+5:     for (incr = 16, angle = 0; angle <= 360; angle += incr) {
+6:         float rad = (float)angle * 0.01745329252;
+7:         printf("%.*s%c\n", 30 + (int)(sinf(rad) * 25.0),
+8:                "                                                            ;
+9:     }
+10:     return 0;
+11: }
+20078000    b580        push    {r7, lr}
+20078002    466f        mov     r7, sp
+20078004    b083        sub     sp, #12         ; 0xc
+20078006    463b        mov     r3, r7
+20078008    3b08        subs    r3, #8
+2007800a    2010        movs    r0, #16         ; 0x10
+2007800c    6018        str     r0, [r3, #0]
+2007800e    1f38        subs    r0, r7, #4
+20078010    b401        push    {r0}
+20078012    2000        movs    r0, #0
+20078014    bc08        pop     {r3}
+20078016    6018        str     r0, [r3, #0]
+20078018    f000 f83e   bl      20078098
+2007801c    4638        mov     r0, r7
+2007801e    380c        subs    r0, #12         ; 0xc
+20078020    b401        push    {r0}
+20078022    1f38        subs    r0, r7, #4
+20078024    edd0 7a00   vldr    s15, [r0, #0]
+20078028    eef8 7ae7   vcvt.f32 s15, s15
+2007802c    ed6d 7a01   vpush   {s15}
+20078030    eddf 7a22   vldr    s15, [pc, #136]  ; 0x200780bc
+20078034    ecbd 7a01   vpop    {s14}
+20078038    ee67 7a27   vmul    s15, s14, s15
+2007803c    ee17 0a90   vmov    r0, s15
+20078040    bc08        pop     {r3}
+20078042    6018        str     r0, [r3, #0]
+20078044    481e        ldr     r0, [pc, #120]  ; 0x200780c0
+20078046    b401        push    {r0}
+20078048    201e        movs    r0, #30         ; 0x1e
+2007804a    b401        push    {r0}
+2007804c    4638        mov     r0, r7
+2007804e    380c        subs    r0, #12         ; 0xc
+20078050    6800        ldr     r0, [r0, #0]
+20078052    4b1c        ldr     r3, [pc, #112]  ; 0x200780c4
+20078054    4798        blx     r3
+20078056    b401        push    {r0}
+20078058    eddf 7a1b   vldr    s15, [pc, #108]  ; 0x200780c8
+2007805c    ecbd 7a01   vpop    {s14}
+20078060    ee67 7a27   vmul    s15, s14, s15
+20078064    eefd 7ae7   vcvt.s32 s15, s15
+20078068    ee17 0a90   vmov    r0, s15
+2007806c    bc08        pop     {r3}
+2007806e    18c0        adds    r0, r0, r3
+20078070    b401        push    {r0}
+20078072    4816        ldr     r0, [pc, #88]   ; 0x200780cc
+20078074    b401        push    {r0}
+20078076    202a        movs    r0, #42         ; 0x2a
+20078078    b401        push    {r0}
+2007807a    2004        movs    r0, #4
+2007807c    4b14        ldr     r3, [pc, #80]   ; 0x200780d0
+2007807e    4798        blx     r3
+20078080    b004        add     sp, #16         ; 0x10
+20078082    1f38        subs    r0, r7, #4
+20078084    b401        push    {r0}
+20078086    6800        ldr     r0, [r0, #0]
+20078088    b401        push    {r0}
+2007808a    4638        mov     r0, r7
+2007808c    3808        subs    r0, #8
+2007808e    6800        ldr     r0, [r0, #0]
+20078090    bc08        pop     {r3}
+20078092    18c0        adds    r0, r0, r3
+20078094    bc08        pop     {r3}
+20078096    6018        str     r0, [r3, #0]
+20078098    1f38        subs    r0, r7, #4
+2007809a    6800        ldr     r0, [r0, #0]
+2007809c    b401        push    {r0}
+2007809e    f240 1068   movw    r0, #360        ; 0x168
+200780a2    bc02        pop     {r1}
+200780a4    4281        cmp     r1, r0
+200780a6    bfcc        ite     gt
+200780a8    2000        movgt   r0, #0
+200780aa    2001        movle   r0, #1
+200780ac    2800        cmp     r0, #0
+200780ae    d1b5        bne     2007801c
+200780b0    2000        movs    r0, #0
+200780b2    46bd        mov     sp, r7
+200780b4    bd80        pop     {r7, pc}
+200780b6    46bd        mov     sp, r7
+200780b8    bd80        pop     {r7, pc}
+200780ba    bf00        nop
+200780bc    fa35 3c8e   .word   0xfa353c8e
+200780c0    2007 c000   .word   0x2007c000
+200780c4    1002 5619   .word   0x10025619      ; sinf
+200780c8    41c8 0000   .word   0x41c80000
+200780cc    2007 c008   .word   0x2007c008
+200780d0    1001 60a9   .word   0x100160a9      ; printf
+200780d4    0000 0000   .word   0x00000000      ; "\0\0\0\0"
+
