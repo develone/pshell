@@ -1,0 +1,56 @@
+/: cat pico2-blink.c
+#include <stdio.h>
+
+int main() {
+    //int led_pin = PICO_DEFAULT_LED_PIN;
+    int led_pin = 25;
+    gpio_init(led_pin);
+    gpio_set_dir(led_pin, GPIO_OUT);
+    int tic = 0;
+    int i;    
+    for (i=0;i<25;i++) {
+        printf("i = %d led = %d \n",i,tic);
+        gpio_put(led_pin, tic ^= 1);
+        if (getchar_timeout_us(500000) == 3)
+            break;
+    }
+    gpio_put(led_pin, 0);
+    return 0;
+}
+
+/: cc -o pico2-blink pico2-blink.c                  
+
+text size   0x00f4
+data size   0x0014
+entry point 0x0000
+reloc count      5
+
+/: pico2-blink 
+
+i = 0 led = 0 
+i = 1 led = 1 
+i = 2 led = 0 
+i = 3 led = 1 
+i = 4 led = 0 
+i = 5 led = 1 
+i = 6 led = 0 
+i = 7 led = 1 
+i = 8 led = 0 
+i = 9 led = 1 
+i = 10 led = 0 
+i = 11 led = 1 
+i = 12 led = 0 
+i = 13 led = 1 
+i = 14 led = 0 
+i = 15 led = 1 
+i = 16 led = 0 
+i = 17 led = 1 
+i = 18 led = 0 
+i = 19 led = 1 
+i = 20 led = 0 
+i = 21 led = 1 
+i = 22 led = 0 
+i = 23 led = 1 
+i = 24 led = 0 
+
+CC = 0
