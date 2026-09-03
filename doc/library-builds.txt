@@ -1,0 +1,181 @@
+09/03/26
+
+
+pico-sdk what is the difference add_library(openjpeg INTERFACE) and add_library(openjpeg )
+
+In the Raspberry Pi Pico SDK (which uses standard CMake), the difference lies in how the library 
+is built and whether it contains its own source code.
+
+Here is the direct breakdown of the two commands:
+
+add_library(openjpeg INTERFACE)
+
+This creates an Interface Library. It does not compile any source files of its own.
+
+Purpose: Used as a "header-only" library or a collection of build configurations.
+
+Source Files: Cannot have source files (.c, .cpp) directly attached to it.
+
+Usage: It purely forwards header include paths, compiler flags, or other target dependencies to 
+whatever links against it.
+
+Pico Context: Often used to wrap external third-party code where you just want to point to an 
+existing folder of headers and pre-compiled binaries.
+
+add_library(openjpeg)
+
+This creates a Standard Library (Static or Shared, defaulting to Static in the Pico SDK).
+
+Purpose: Used to compile actual source code into a library binary (e.g., libopenjpeg.a).
+
+Source Files: Requires you to provide source files right after the name, 
+like add_library(openjpeg openjpeg.c jp2.c).
+
+Usage: CMake will physically compile these files during the build process.
+
+Pico Context: Used when you are writing or porting the actual C/C++ source code files for 
+OpenJPEG to run on the RP2040/RP2350.
+
+Summary Comparison
+
+Feature						add_library(openjpeg 		add_library(openjpeg)
+							INTERFACE)	
+Compiles Code?				No							Yes
+Requires Source Files?		No							Yes
+Generates .a file?			No							Yes
+Primar
+
+add_library(openjpeg INTERFACE)
+target_include_directories(openjpeg INTERFACE ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib)
+target_sources(openjpeg INTERFACE
+ 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/bio.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/bio.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/cio.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/cio.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwt.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwt.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/event.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/event.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/function_list.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/function_list.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/image.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/image.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/invert.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/invert.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/j2k.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/j2k.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct.c 
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct_inl.h 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/openjpeg.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/openjpeg.h 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_clock.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_clock.h
+
+ 
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_codec.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_common.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_config.h
+
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_config_private.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_includes.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_intmath.h
+    
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_inttypes.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_malloc.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_malloc.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.h
+		#${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rdwr.h
+		${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rd-wr-ops.c
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1_luts.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tcd.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tcd.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tgt.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tgt.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tls_keys.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/format_defs.h
+    
+
+
+)
+
+
+
+add_library(openjpeg 
+#target_include_directories(openjpeg INTERFACE ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib)
+#target_sources(openjpeg INTERFACE
+ 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/bio.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/bio.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/cio.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/cio.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwt.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwt.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/event.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/event.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/function_list.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/function_list.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/image.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/image.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/invert.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/invert.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/j2k.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/j2k.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct.c 
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/mct_inl.h 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/openjpeg.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/openjpeg.h 
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_clock.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_clock.h
+
+ 
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_codec.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_common.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_config.h
+
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_config_private.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_includes.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_intmath.h
+    
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_inttypes.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_malloc.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/opj_malloc.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/pi.h
+		#${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rdwr.h
+		${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/rd-wr-ops.c
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/t1_luts.h
+
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tcd.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tcd.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tgt.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tgt.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/thread.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/tls_keys.h
+    ${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.c
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/dwtlift.h
+    #${CMAKE_CURRENT_LIST_DIR}/openjpeg-lib/format_defs.h
+    
+
+
+)
+
+
+
